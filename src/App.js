@@ -42,8 +42,6 @@ class App extends Component {
       <Layout className="layout">
         <Content className="content">
           <div className="header">
-            <div className="gradients">
-            </div>
           </div>
           <Row type="flex" justify="center">
             <div className="intro">
