@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-import { Layout, Icon, Button, Row, Col, Modal } from 'antd';
+import { Layout, Icon, Button, Row, Col } from 'antd';
 import { BrowserView, MobileView } from 'react-device-detect';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import NoDollarsAccepted from './components/noDollarsAccepted';
@@ -41,11 +41,14 @@ class App extends Component {
     });
   }
 
+
   render() {
     const fundStyle = {
       fontSize: '125px',
       color: 'black',
     };
+
+    const modalCopy = 'Yes! Notify me when product becomes available';
 
     return (
       <Layout className="layout">
@@ -56,17 +59,12 @@ class App extends Component {
             <div className="intro">
               <h1>Take the guess work out of your real estate investment purchase</h1>
               <p>Quickly validate location appreciation and discover new areas to invest.</p>
-
-              <Modal
-                visible={this.state.showModal}
-                onOk={this.onSuccess}
-                onCancel={this.onFailure}
-                className="reap_modal"
-              >
-                <h3 className="modal_copy">Yes! Notify me when product becomes available</h3>
-                <ReapForm />
-              </Modal>
-
+              <ReapForm
+                message={modalCopy}
+                showModal={this.state.showModal}
+                onClose={this.onFailure}
+                onSuccess={this.onSuccess}
+              />
               <Button
                 className="signup_button"
                 type="primary"

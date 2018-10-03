@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, notification } from 'antd';
+import { Form, Input, Modal, notification } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -8,11 +8,18 @@ class ReapForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.openNotificationWithIcon('success');
+        this.props.onSuccess();
       }
     });
   }
 
+  openNotificationWithIcon = (type) => {
+    notification[type]({
+      message: 'Thank you!',
+      description: 'We received your email. We\'ll keep you posted',
+    });
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -27,23 +34,33 @@ class ReapForm extends Component {
       },
     };
 
+    const { message, showModal, onClose } = this.props;
+
     return (
-      <Form layout="inline" onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
-          label="Email"
-        >
-          {getFieldDecorator('email', {
-            rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
-          })(
-            <Input />
-          )}
-        </FormItem>
-      </Form>
+      <Modal
+        visible={showModal}
+        onOk={this.handleSubmit}
+        onCancel={onClose}
+        className="reap_modal"
+      >
+        <h3 className="modal_copy">{ message }</h3>
+        <Form layout="inline" onSubmit={this.handleSubmit}>
+          <FormItem
+            {...formItemLayout}
+            label="Email"
+          >
+            {getFieldDecorator('email', {
+              rules: [{
+                type: 'email', message: 'The input is not valid E-mail!',
+              }, {
+                required: true, message: 'Please input your E-mail!',
+              }],
+            })(
+              <Input />
+            )}
+          </FormItem>
+        </Form>
+      </Modal>
     );
   }
 }
