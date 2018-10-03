@@ -48,7 +48,7 @@ class App extends Component {
       color: 'black',
     };
 
-    const modalCopy = 'Yes! Notify me when product becomes available';
+    const modalCopy = 'Yes! Notify me when this product becomes available.';
 
     return (
       <Layout className="layout">
