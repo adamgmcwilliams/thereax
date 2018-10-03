@@ -1,6 +1,5 @@
 .header {
-  margin-top: 64px;
-  height: 400px;
+  height: 600px;
   width: 100%;
   background: url("/house.png");
   background-repeat: no-repeat;
@@ -11,11 +10,21 @@
 }
 
 .intro {
-  top: 64px;
+  top: 200px;
   position: absolute;
   color: white;
   text-align: center;
   font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.reap_modal {
+  display: flex;
+  justify-content: center;
+}
+
+.modal_copy {
+  margin-top: 16px;
+  margin-bottom: 20px;
 }
 
 .intro h1 {

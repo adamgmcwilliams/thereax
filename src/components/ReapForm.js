@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input, notification } from 'antd';
 
 const FormItem = Form.Item;
 
 class ReapForm extends Component {
-  componentDidMount() {
-    this.props.form.validateFields();
-  }
-
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -30,7 +26,6 @@ class ReapForm extends Component {
         sm: { span: 16 },
       },
     };
-    console.log('Hey');
 
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>

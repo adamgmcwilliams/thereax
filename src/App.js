@@ -12,13 +12,22 @@ import './App.css';
 const { Content, Footer } = Layout;
 
 class App extends Component {
-  state = { showModal: false };
+  state = { showModal: false, modalShown: false };
 
   showModal = () => {
     this.setState({
       showModal: true,
     });
   };
+
+  bottomFormTrigger = () => {
+    if (!this.state.modalShown) {
+      this.setState({
+        showModal: true,
+        modalShown: true,
+      });
+    }
+  }
 
   onSuccess = () => {
     this.setState({
@@ -46,14 +55,15 @@ class App extends Component {
           <Row type="flex" justify="center">
             <div className="intro">
               <h1>Take the guess work out of your real estate investment purchase</h1>
-              <p>Quickly validate location application and discover new areas to invest.</p>
+              <p>Quickly validate location appreciation and discover new areas to invest.</p>
 
               <Modal
-                title="Basic Modal"
                 visible={this.state.showModal}
                 onOk={this.onSuccess}
                 onCancel={this.onFailure}
+                className="reap_modal"
               >
+                <h3 className="modal_copy">Yes! Notify me when product becomes available</h3>
                 <ReapForm />
               </Modal>
 
@@ -137,7 +147,7 @@ class App extends Component {
         </Content>
         <Footer className="footer">
         </Footer>
-        <BottomScrollListener onBottom={this.showModal} />
+        <BottomScrollListener onBottom={this.bottomFormTrigger} />
       </Layout>
     );
   }
