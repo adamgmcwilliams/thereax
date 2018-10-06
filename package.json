@@ -18,6 +18,7 @@
     "serve": "10.0.2"
   },
   "scripts": {
+    "dev": "react-app-rewired start",
     "start": "serve -s build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
