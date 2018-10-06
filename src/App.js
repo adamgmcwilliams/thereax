@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 import { Layout, Icon, Button, Row, Col } from 'antd';
-import { BrowserView, MobileView } from 'react-device-detect';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 import NoDollarsAccepted from './components/noDollarsAccepted';
 import ReapForm from './components/ReapForm';
@@ -43,7 +42,7 @@ class App extends Component {
 
 
   render() {
-    const fundStyle = {
+    const iconStyle = {
       fontSize: '125px',
       color: 'black',
     };
@@ -75,72 +74,41 @@ class App extends Component {
             </div>
           </Row>
           <div className="offering">
-            <MobileView>
-              <div className="card">
-                <Zoom>
-                  <Icon type="safety" theme="outlined" style={fundStyle}/>
-                  <h3>Eliminate Uncertainty</h3>
-                </Zoom>
-                <Fade delay={500}>
-                  <p>REAP analyzes locations across the US and uncovers top performing and quickly appreciating real estate markets.</p>
-                </Fade>
-              </div>
-              <div className="card">
-                <Zoom>
-                  <Icon type="area-chart" theme="outlined" style={fundStyle}/>
-                  <h3>Measure which areas are appreciating</h3>
-                </Zoom>
-                <Fade delay={500}>
-                  <p>View and create real estate property indexes. Chart property values over time. Identify the most fitting areas for your investment.</p>
-                </Fade>
-              </div>
-              <div className="card">
-                <Zoom>
-                  <Icon component={NoDollarsAccepted} style={fundStyle}/>
-                  <h3>Free</h3>
-                </Zoom>
-                <Fade delay={500}>
-                  <p>REAP is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
-                </Fade>
-              </div>
-            </MobileView>
-            <BrowserView>
-              <Row>
-                <Col span={8}>
-                  <div className="card">
-                    <Zoom>
-                      <Icon type="safety" theme="outlined" style={fundStyle}/>
-                      <h3>Eliminate Uncertainty</h3>
-                    </Zoom>
-                    <Fade delay={500}>
-                      <p>REAP analyzes locations across the US and uncovers top performing and quickly appreciating real estate markets.</p>
-                    </Fade>
-                  </div>
-                </Col>
-                <Col span={8}>
-                  <div className="card">
-                    <Zoom>
-                      <Icon type="area-chart" theme="outlined" style={fundStyle}/>
-                      <h3>Measure which areas are appreciating</h3>
-                    </Zoom>
-                    <Fade delay={500}>
-                      <p>View and create real estate property indexes. Chart property values over time. Identify the most fitting areas for your investment.</p>
-                    </Fade>
-                  </div>
-                </Col>
-                <Col span={8}>
-                  <div className="card">
-                    <Zoom>
-                      <Icon component={NoDollarsAccepted} style={fundStyle}/>
-                      <h3>Free</h3>
-                    </Zoom>
-                    <Fade delay={500}>
-                      <p>REAP is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
-                    </Fade>
-                  </div>
-                </Col>
-              </Row>
-            </BrowserView>
+            <Row>
+              <Col lg={8} sm={24}>
+                <div className="card">
+                  <Zoom>
+                    <Icon type="safety" theme="outlined" style={iconStyle}/>
+                    <h3>Eliminate Uncertainty</h3>
+                  </Zoom>
+                  <Fade delay={500}>
+                    <p>REAP analyzes locations across the US and uncovers top performing and quickly appreciating real estate markets.</p>
+                  </Fade>
+                </div>
+              </Col>
+              <Col lg={8} sm={24}>
+                <div className="card">
+                  <Zoom>
+                    <Icon type="area-chart" theme="outlined" style={iconStyle}/>
+                    <h3>Measure which areas are appreciating</h3>
+                  </Zoom>
+                  <Fade delay={500}>
+                    <p>View and create real estate property indexes. Chart property values over time. Identify the most fitting areas for your investment.</p>
+                  </Fade>
+                </div>
+              </Col>
+              <Col lg={8} sm={24}>
+                <div className="card">
+                  <Zoom>
+                    <Icon component={NoDollarsAccepted} style={iconStyle}/>
+                    <h3>Free</h3>
+                  </Zoom>
+                  <Fade delay={500}>
+                    <p>REAP is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
+                  </Fade>
+                </div>
+              </Col>
+            </Row>
           </div>
         </Content>
         <Footer className="footer">
