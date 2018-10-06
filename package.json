@@ -14,15 +14,17 @@
     "react-dom": "^16.5.2",
     "react-reveal": "1.2.2",
     "react-scripts": "1.1.5",
-    "react-waypoint": "8.0.3"
+    "react-waypoint": "8.0.3",
+    "serve": "10.0.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "serve -s build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "heroku-postbuild": "npm run build",
     "push": "git push heroku master"
   },
   "homepage": "https://thereax.com"
