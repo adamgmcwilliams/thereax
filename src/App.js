@@ -58,16 +58,11 @@ class App extends Component {
             <div className="intro">
               <h1>Take the guess work out of your real estate investment purchase</h1>
               <p>Quickly validate location appreciation and discover new areas to invest.</p>
-              <ReapForm
-                message={modalCopy}
-                showModal={this.state.showModal}
-                onClose={this.onFailure}
-                onSuccess={this.onSuccess}
-              />
               <Button
                 className="signup_button"
                 type="primary"
                 onClick={this.showModal}
+                size="large"
               >
                 Sign Up
               </Button>
@@ -110,6 +105,12 @@ class App extends Component {
               </Col>
             </Row>
           </div>
+          <ReapForm
+            message={modalCopy}
+            showModal={this.state.showModal}
+            onClose={this.onFailure}
+            onSuccess={this.onSuccess}
+          />
         </Content>
         <Footer className="footer">
         </Footer>

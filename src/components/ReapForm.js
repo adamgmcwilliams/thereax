@@ -38,12 +38,12 @@ class ReapForm extends Component {
 
     return (
       <Modal
+        title="The Reax"
         visible={showModal}
         onOk={this.handleSubmit}
         onCancel={onClose}
-        className="reap_modal"
       >
-        <h3 className="modal_copy">{ message }</h3>
+        <h3>{ message }</h3>
         <Form layout="inline" onSubmit={this.handleSubmit}>
           <FormItem
             {...formItemLayout}

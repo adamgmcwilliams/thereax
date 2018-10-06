@@ -18,13 +18,9 @@
 }
 
 .reap_modal {
-  display: flex;
-  justify-content: center;
 }
 
 .modal_copy {
-  margin-top: 16px;
-  margin-bottom: 20px;
 }
 
 .intro h1 {
@@ -42,8 +38,6 @@
 }
 
 .signup_button {
-  color: #9ACD32;
-  background-color: white;
 }
 
 .offering {
