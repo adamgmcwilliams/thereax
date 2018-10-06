@@ -3,22 +3,37 @@ import { Form, Input, Modal, notification } from 'antd';
 
 const FormItem = Form.Item;
 
+const notifications = {
+  success: {
+    message: 'Thank you!',
+    description: 'We received your email. We\'ll keep you posted',
+  },
+  error: {
+    message: 'Something went wrong',
+    description: 'Please try again with a valid email',
+  }
+};
+
 class ReapForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.openNotificationWithIcon('success');
-        this.props.onSuccess();
+        fetch(`/list/${values.email}`).then((response) => {
+          return response.json();
+        }).then((res) => {
+          if (res.statusCode === 500) {
+            return this.openNotificationWithIcon('error');
+          }
+          this.openNotificationWithIcon('success');
+          return this.props.onSuccess();
+        })
       }
     });
-  }
+  };
 
   openNotificationWithIcon = (type) => {
-    notification[type]({
-      message: 'Thank you!',
-      description: 'We received your email. We\'ll keep you posted',
-    });
+    notification[type](notifications[type]);
   };
 
   render() {
