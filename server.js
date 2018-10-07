@@ -17,11 +17,13 @@ const success = (server) => {
 const mailChimpBaseUri = 'https://us19.api.mailchimp.com/3.0/';
 
 const bootup = async () => {
+  const directory = process.env.NODE_ENV === 'production' ? 'build' : 'public';
+
   const server = hapi.Server({
     port: process.env.PORT || 8000,
     routes: {
       files: {
-        relativeTo: path.join(__dirname, 'public'),
+        relativeTo: path.join(__dirname, directory),
       }
     }
   });

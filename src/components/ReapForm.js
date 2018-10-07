@@ -19,7 +19,14 @@ class ReapForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        fetch(`/list/${values.email}`).then((response) => {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          }
+        };
+
+        fetch(`/list/${values.email}`, config).then((response) => {
           return response.json();
         }).then((res) => {
           if (res.statusCode === 500) {

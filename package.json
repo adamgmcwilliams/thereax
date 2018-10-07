@@ -25,9 +25,9 @@
   "proxy": "http://localhost:8000/",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "pm2 start server.js --no-daemon",
     "server": "pm2 start server.js --no-daemon --watch",
     "client": "react-app-rewired start",
-    "start": "serve -s build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
