@@ -14,7 +14,8 @@ const success = (server) => {
   console.log(`server booted up successfully at: ${server.info.uri}`);
 };
 
-const mailChimpBaseUri = 'https://us19.api.mailchimp.com/3.0/';
+const mailChimpBaseUri = process.env.MAILCHIMP_URI;
+const mailChimpApiKey = process.env.MAILCHIMP_API_KEY;
 
 const bootup = async () => {
   const directory = process.env.NODE_ENV === 'production' ? 'build' : 'public';
@@ -38,7 +39,7 @@ const bootup = async () => {
 
       return agent
         .post(`${mailChimpBaseUri}lists/c160b732bf/members`)
-        .auth('REAPbeta', '3ed138164272d0e0821e325443c2549c-us19')
+        .auth('REAPbeta', mailChimpApiKey)
         .send({ email_address: email, status: 'subscribed' })
         .then((res) => {
           switch (res.status) {
