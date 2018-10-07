@@ -17,10 +17,12 @@
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.reap_modal {
+.ant-modal-header {
+  text-align: center;
 }
 
 .modal_copy {
+  margin-bottom: 1.5em;
 }
 
 .intro h1 {

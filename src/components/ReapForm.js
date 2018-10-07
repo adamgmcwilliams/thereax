@@ -64,8 +64,9 @@ class ReapForm extends Component {
         visible={showModal}
         onOk={this.handleSubmit}
         onCancel={onClose}
+        bodyStyle={{ textAlign: 'center' }}
       >
-        <h3>{ message }</h3>
+        <h3 className="modal_copy" >{ message }</h3>
         <Form layout="inline" onSubmit={this.handleSubmit}>
           <FormItem
             {...formItemLayout}
