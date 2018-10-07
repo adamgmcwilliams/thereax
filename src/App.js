@@ -77,7 +77,7 @@ class App extends Component {
                     <h3>Eliminate Uncertainty</h3>
                   </Zoom>
                   <Fade delay={500}>
-                    <p>REAP analyzes locations across the US and uncovers top performing and quickly appreciating real estate markets.</p>
+                    <p>REAX analyzes locations across the US and uncovers top performing and quickly appreciating real estate markets.</p>
                   </Fade>
                 </div>
               </Col>
@@ -99,7 +99,7 @@ class App extends Component {
                     <h3>Free</h3>
                   </Zoom>
                   <Fade delay={500}>
-                    <p>REAP is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
+                    <p>REAX is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
                   </Fade>
                 </div>
               </Col>
