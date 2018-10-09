@@ -99,7 +99,7 @@ class App extends Component {
                     <h3>Free</h3>
                   </Zoom>
                   <Fade delay={500}>
-                    <p>REAX is a free tool intended to assist you in crafting the best possible invesment strategy.</p>
+                    <p>REAX is a free tool intended to assist you in crafting the best possible investment strategy.</p>
                   </Fade>
                 </div>
               </Col>
