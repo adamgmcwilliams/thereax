@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button } from 'antd';
 import { Fade } from 'react-reveal';
+import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
 
 const StyledH1 = styled.h1`
@@ -27,6 +28,26 @@ const StyledCol = styled(Col)`
 `;
 
 class LandingPage extends Component {
+  state = { showModal: false };
+
+  showModal = () => {
+    this.setState({
+      showModal: true,
+    });
+  }
+
+  onSuccess = () => {
+    this.setState({
+      showModal: false,
+    });
+  }
+
+  onFailure = () => {
+    this.setState({
+      showModal: false
+    });
+  }
+
   render() {
     const colBaseStyle = {
       lg: 12,
@@ -44,7 +65,11 @@ class LandingPage extends Component {
             </div>
           </Fade>
           <Fade delay={1000}>
-            <Button type="primary">
+            <Button
+              type="primary"
+              onClick={this.showModal}
+              size="large"
+            >
               Sign Up
             </Button>
           </Fade>
@@ -58,6 +83,12 @@ class LandingPage extends Component {
         <StyledCol {...colBaseStyle}>
           <h1> Four </h1>
         </StyledCol>
+        <ReapForm
+          message="Some copy"
+          showModal={this.state.showModal}
+          onClose={this.onFailure}
+          onSuccess={this.onSuccess}
+        />
       </Row>
     );
   }
