@@ -7,7 +7,7 @@ class Container extends Component {
   render() {
     return (
       <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%', padding: 0 }}>
         <Menu
           theme="light"
           mode="horizontal"
