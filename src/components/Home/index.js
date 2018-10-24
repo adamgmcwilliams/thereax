@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Row, Col, Button } from 'antd';
 import { Fade } from 'react-reveal';
+import { isMobile } from 'react-device-detect';
 import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
 
@@ -16,7 +17,7 @@ const StyledH4 = styled.h4`
 `;
 
 const StyledCol = styled(Col)`
-  height: 100vh;
+  height: 80vh;
   text-align: center;
   padding: 60px;
 
@@ -26,6 +27,21 @@ const StyledCol = styled(Col)`
     padding: 100px;
   `}
 `;
+
+const Img = styled.img`
+  height: auto;
+  width: 100%
+
+  ${media.sm`
+    height: auto;
+    width: 70%
+  `}
+`;
+
+const colBaseStyle = {
+  lg: 12,
+  sm: 24,
+};
 
 class LandingPage extends Component {
   state = { showModal: false };
@@ -48,23 +64,53 @@ class LandingPage extends Component {
     });
   }
 
+  swap = (elements) => {
+    const first = elements[0];
+    elements[0] = elements[1];
+    elements[1] = first;
+  }
+
+  sectionTwo = () => {
+    const section = [
+      <StyledCol key="section-two-img" {...colBaseStyle}>
+          <Fade delay={isMobile ? 500 : 1000}>
+            <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/Android_trading_still.png" />
+          </Fade>
+      </StyledCol>,
+      <StyledCol key="section-two-copy" {...colBaseStyle}>
+        <Fade top delay={500}>
+          <StyledH1>Invest for free.</StyledH1>
+        </Fade>
+        <Fade bottom delay={1000}>
+          <div>
+            <StyledH4>We believe that the financial system should work for the rest of us, not just the wealthy. We’ve cut the fat that makes other brokerages costly, like manual account management and hundreds of storefront locations, so we can offer zero commission trading.</StyledH4>
+          </div>
+        </Fade>
+      </StyledCol>
+    ];
+
+    if (isMobile) {
+      this.swap(section);
+    }
+
+    return section;
+  };
+
   render() {
-    const colBaseStyle = {
-      lg: 12,
-      sm: 24,
-    };
 
     return (
       <Row style={{ backgroundColor: 'white' }}>
         <StyledCol {...colBaseStyle} style={{ marginTop: 64 }}>
-          <Fade delay={500}>
+          <Fade top delay={500}>
             <StyledH1>Investing.</StyledH1>
             <StyledH1>Now for the rest of us.</StyledH1>
+          </Fade>
+          <Fade bottom delay={1500}>
             <div>
               <StyledH4>Robinhood lets you invest in the stock market for free, directly from your phone or desktop.</StyledH4>
             </div>
           </Fade>
-          <Fade delay={1000}>
+          <Fade delay={2500}>
             <Button
               type="primary"
               onClick={this.showModal}
@@ -75,14 +121,11 @@ class LandingPage extends Component {
           </Fade>
         </StyledCol>
         <StyledCol {...colBaseStyle} style={{ marginTop: 64 }}>
-          <h1> Two </h1>
+          <Fade delay={isMobile ? 500 : 1500}>
+            <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/iPhoneHome_still.png" />
+          </Fade>
         </StyledCol>
-        <StyledCol {...colBaseStyle}>
-          <StyledH1> Three </StyledH1>
-        </StyledCol>
-        <StyledCol {...colBaseStyle}>
-          <h1> Four </h1>
-        </StyledCol>
+        {this.sectionTwo()}
         <ReapForm
           message="Some copy"
           showModal={this.state.showModal}
