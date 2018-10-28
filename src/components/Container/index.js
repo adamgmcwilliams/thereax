@@ -16,11 +16,21 @@ class Container extends Component {
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item
+            key="home"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            Home
+          </Menu.Item>
+          <Menu.Item
             key="signup"
             onClick={() => {
               history.push('/signup');
             }}
-          >Sign Up</Menu.Item>
+          >
+            Sign Up
+          </Menu.Item>
         </Menu>
       </Header>
         <Content>
