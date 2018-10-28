@@ -28,7 +28,9 @@ const StyledH4 = styled.h4`
 const StyledCol = styled(Col)`
   height: 80vh;
   text-align: center;
-  padding: 60px;
+  padding-top: 120px;
+  padding-left: 60px;
+  padding-right: 60px;
 
   ${media.sm`
     height: 100vh;
@@ -43,7 +45,8 @@ const StyledCol = styled(Col)`
 const StyledColImg = styled(Col)`
   height: 60vh;
   text-align: center;
-  padding: 60px;
+  padding-bottom: 80px;
+  patting-top: 0px;
 
   ${media.sm`
     height: 100vh;
@@ -54,7 +57,7 @@ const StyledColImg = styled(Col)`
 
 const Img = styled.img`
   height: auto;
-  width: 100%
+  width: 90%
 
   ${media.sm`
     height: auto;
