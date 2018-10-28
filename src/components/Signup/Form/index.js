@@ -2,44 +2,18 @@ import React, { Component } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
-  Icon,
-  Cascader,
   Select,
   Row,
   Col,
-  Checkbox,
   Button,
   AutoComplete
 } from 'antd';
 
+import TypedAssist from '../TypedAssist';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
-
-const residences = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-    }],
-  }],
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-    }],
-  }],
-}];
 
 class RegistrationForm extends Component {
   state = {
@@ -110,25 +84,32 @@ class RegistrationForm extends Component {
         },
         sm: {
           span: 16,
-          offset: 8,
+          offset: 5,
         },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
 
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
+    const formStyle = {
+      padding: 35
+    };
+
+    const headerStyle = {
+      sm: {
+        span: 16,
+        offset: 5,
+      }
+    };
 
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form style={formStyle} onSubmit={this.handleSubmit}>
+        <Row>
+          <Col
+            {...headerStyle}
+          >
+            <h1> Make your money move </h1>
+            <p> REAX lets you invest smarter </p>
+          </Col>
+        </Row>
         <FormItem
           {...tailFormItemLayout}
         >
@@ -139,7 +120,7 @@ class RegistrationForm extends Component {
               required: true, message: 'Please input your E-mail!',
             }],
           })(
-            <Input placeholder="email" />
+            <Input size="large" placeholder="email" />
           )}
         </FormItem>
         <FormItem
@@ -152,7 +133,7 @@ class RegistrationForm extends Component {
               validator: this.validateToNextPassword,
             }],
           })(
-            <Input placeholder="password" type="password" />
+            <Input size="large" placeholder="password" type="password" />
           )}
         </FormItem>
         <FormItem
@@ -165,11 +146,12 @@ class RegistrationForm extends Component {
               validator: this.compareToFirstPassword,
             }],
           })(
-            <Input placeholder="confirm password" type="password" onBlur={this.handleConfirmBlur} />
+            <Input size="large" placeholder="confirm password" type="password" onBlur={this.handleConfirmBlur} />
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button
+            size="large"
             type="primary"
             htmlType="submit"
             style={{ width: '100%' }}
