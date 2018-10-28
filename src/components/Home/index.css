@@ -3,10 +3,17 @@
   height: 1300px;
   position: absolute;
   right: 0;
-  top: -55%;
+  top: -35%;
   transform: translate(0, -37%);
   width: 150%;
 
   background-image: url("./vector_laptop_1.png");
   background-size: auto 100%;
+}
+
+@media (max-width: 576px) {
+  .asset-placeholder {
+    height: 500px;
+    width: 142%;
+  }
 }

@@ -10,7 +10,14 @@ import './index.css';
 
 const StyledH1 = styled.h1`
   margin-bottom: 0;
-  font-size: 3em;
+  font-size: 3.2em;
+  font-weight: 600;
+
+  ${media.sm`
+    margin-bottom: 0;
+    font-size: 4em;
+    font-weight: 800;
+  `}
 `;
 
 const StyledH4 = styled.h4`
@@ -26,7 +33,22 @@ const StyledCol = styled(Col)`
   ${media.sm`
     height: 100vh;
     text-align: left;
-    padding: 100px;
+    padding-top: 185px;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-bottom: 125px;
+  `}
+`;
+
+const StyledColImg = styled(Col)`
+  height: 60vh;
+  text-align: center;
+  padding: 60px;
+
+  ${media.sm`
+    height: 100vh;
+    text-align: left;
+    padding: 125px;
   `}
 `;
 
@@ -36,7 +58,7 @@ const Img = styled.img`
 
   ${media.sm`
     height: auto;
-    width: 70%
+    width: 90%
   `}
 `;
 
@@ -74,11 +96,11 @@ class LandingPage extends Component {
 
   sectionTwo = () => {
     const section = [
-      <StyledCol key="section-two-img" {...colBaseStyle}>
+      <StyledColImg key="section-two-img" {...colBaseStyle}>
           <Fade delay={isMobile ? 500 : 1000}>
             <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/Android_trading_still.png" />
           </Fade>
-      </StyledCol>,
+      </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
         <Fade top delay={500}>
           <StyledH1>Search for free.</StyledH1>
@@ -101,11 +123,11 @@ class LandingPage extends Component {
 
   sectionFour = () => {
     const section = [
-      <StyledCol key="section-two-img" {...colBaseStyle}>
+      <StyledColImg key="section-two-img" {...colBaseStyle}>
           <Fade delay={isMobile ? 500 : 1000}>
             <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/Android_trading_still.png" />
           </Fade>
-      </StyledCol>,
+      </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
         <Fade top delay={500}>
           <StyledH1>Learn by doing.</StyledH1>
@@ -129,7 +151,11 @@ class LandingPage extends Component {
   render() {
 
     return (
-      <Row style={{ backgroundColor: 'white' }}>
+      <Row
+        style={{ backgroundColor: 'white' }}
+        justify="center"
+        align="middle"
+      >
         <StyledCol {...colBaseStyle} style={{ marginTop: 64 }}>
           <Fade top delay={500}>
             <StyledH1>Real estate.</StyledH1>
@@ -150,11 +176,11 @@ class LandingPage extends Component {
             </Button>
           </Fade>
         </StyledCol>
-        <StyledCol {...colBaseStyle} style={{ marginTop: 64 }}>
+        <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }}>
           <Fade delay={isMobile ? 500 : 1500}>
             <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/iPhoneHome_still.png" />
           </Fade>
-        </StyledCol>
+        </StyledColImg>
         {this.sectionTwo()}
         <StyledCol key="section-two-copy" {...colBaseStyle}>
           <Fade top delay={500}>
@@ -166,11 +192,11 @@ class LandingPage extends Component {
             </div>
           </Fade>
         </StyledCol>
-        <StyledCol key="section-three-img" {...colBaseStyle}>
+        <StyledColImg key="section-three-img" {...colBaseStyle}>
           <Fade delay={isMobile ? 500 : 1000}>
             <div className="asset-placeholder" />
           </Fade>
-        </StyledCol>
+        </StyledColImg>
         {this.sectionFour()}
         <ReapForm
           message="Some copy"
