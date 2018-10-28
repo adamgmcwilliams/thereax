@@ -1,0 +1,12 @@
+.asset-placeholder {
+  background-position: left center;
+  height: 1300px;
+  position: absolute;
+  right: 0;
+  top: -55%;
+  transform: translate(0, -37%);
+  width: 150%;
+
+  background-image: url("./vector_laptop_1.png");
+  background-size: auto 100%;
+}
