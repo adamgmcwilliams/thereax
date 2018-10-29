@@ -5,6 +5,9 @@ import { Fade } from 'react-reveal';
 import { isMobile } from 'react-device-detect';
 import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
+import history from '../../helpers/history';
+
+import PhotoImg1 from './vector_phone_1.png';
 
 import './index.css';
 
@@ -61,6 +64,7 @@ const Img = styled.img`
 
   ${media.sm`
     height: auto;
+    width: ${props => props.width ? props.width : '90%'}
     width: 90%
   `}
 `;
@@ -73,22 +77,8 @@ const colBaseStyle = {
 class LandingPage extends Component {
   state = { showModal: false };
 
-  showModal = () => {
-    this.setState({
-      showModal: true,
-    });
-  }
-
-  onSuccess = () => {
-    this.setState({
-      showModal: false,
-    });
-  }
-
-  onFailure = () => {
-    this.setState({
-      showModal: false
-    });
+  showSignup = () => {
+    history.push('/signup');
   }
 
   swap = (elements) => {
@@ -101,7 +91,7 @@ class LandingPage extends Component {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
           <Fade delay={isMobile ? 500 : 1000}>
-            <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/Android_trading_still.png" />
+            <Img src={PhotoImg1} />
           </Fade>
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
@@ -172,7 +162,7 @@ class LandingPage extends Component {
           <Fade delay={2500}>
             <Button
               type="primary"
-              onClick={this.showModal}
+              onClick={this.showSignup}
               size="large"
             >
               Sign Up
