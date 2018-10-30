@@ -33,14 +33,15 @@ const StyledH4 = styled.h4`
 const StyledCol = styled(Col)`
   height: 80vh;
   text-align: center;
-  padding-top: 120px;
+  padding-top: ${props => props.paddingTop ? props.paddingTop : '120px'}
   padding-left: 60px;
   padding-right: 60px;
+  margin-top: ${props => props.marginTop ? props.marginTop : '0'}
 
   ${media.sm`
     height: 100vh;
     text-align: left;
-    padding-top: 185px;
+    padding-top: ${props => props.paddingTopD ? props.paddingTopD : '185px'}
     padding-left: 125px;
     padding-right: 125px;
     padding-bottom: 125px;
@@ -52,11 +53,13 @@ const StyledColImg = styled(Col)`
   text-align: center;
   padding-bottom: 80px;
   patting-top: 0px;
+  margin-top: ${props => props.marginTop ? props.marginTop : '0'}
 
   ${media.sm`
     height: 100vh;
     text-align: left;
     padding: 125px;
+    padding-top: ${props => props.paddingTop ? props.paddingTop : '125px'}
   `}
 `;
 
@@ -91,10 +94,10 @@ class LandingPage extends Component {
 
   sectionTwo = () => {
     const section = [
-      <StyledColImg key="section-two-img" {...colBaseStyle}>
+      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="100px">
         <Img src={PhotoImg1} />
       </StyledColImg>,
-      <StyledCol key="section-two-copy" {...colBaseStyle}>
+      <StyledCol key="section-two-copy" {...colBaseStyle} marginTop="100px">
         <StyledH1>Search for free.</StyledH1>
         <div>
           <StyledH4>We believe that owning real estate should work for everyone, not just the wealthy.</StyledH4>
@@ -115,7 +118,7 @@ class LandingPage extends Component {
       <StyledColImg key="section-two-img" {...colBaseStyle}>
         <Img src={PhotoImg2} />
       </StyledColImg>,
-      <StyledCol key="section-two-copy" {...colBaseStyle}>
+      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="250px">
         <StyledH1>Learn by doing.</StyledH1>
         <div>
           <StyledH4>With REAX, you can learn to invest in the real estate as you build out your portfolio.</StyledH4>
@@ -159,13 +162,13 @@ class LandingPage extends Component {
             </Button>
           </Fade>
         </StyledCol>
-        <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }}>
+        <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }} paddingTop="70px">
           <Fade delay={isMobile ? 500 : 1500}>
             <Img src={PhotoImg3} />
           </Fade>
         </StyledColImg>
         {this.sectionTwo()}
-        <StyledCol key="section-two-copy" {...colBaseStyle}>
+        <StyledCol key="section-two-copy" {...colBaseStyle} paddingTop="20px">
           <StyledH1>No manual needed.</StyledH1>
           <div>
             <StyledH4>We’ve designed REAX to mimic stock exchanges. It’s fast, familiar, simple, and just works.</StyledH4>
