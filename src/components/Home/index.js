@@ -8,6 +8,8 @@ import media from '../../helpers/media';
 import history from '../../helpers/history';
 
 import PhotoImg1 from './vector_phone_1.png';
+import PhotoImg2 from './vector_phone_2.png';
+import PhotoImg3 from './vector_phone_3.png';
 
 import './index.css';
 
@@ -118,7 +120,7 @@ class LandingPage extends Component {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
           <Fade delay={isMobile ? 500 : 1000}>
-            <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/Android_trading_still.png" />
+            <Img src={PhotoImg2} />
           </Fade>
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
@@ -171,7 +173,7 @@ class LandingPage extends Component {
         </StyledCol>
         <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }}>
           <Fade delay={isMobile ? 500 : 1500}>
-            <Img src="https://d2ue93q3u507c2.cloudfront.net/assets/marketing/images/home_redesign/iPhoneHome_still.png" />
+            <Img src={PhotoImg3} />
           </Fade>
         </StyledColImg>
         {this.sectionTwo()}
