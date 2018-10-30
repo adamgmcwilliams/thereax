@@ -92,20 +92,14 @@ class LandingPage extends Component {
   sectionTwo = () => {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
-          <Fade delay={isMobile ? 500 : 1000}>
-            <Img src={PhotoImg1} />
-          </Fade>
+        <Img src={PhotoImg1} />
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
-        <Fade top delay={500}>
-          <StyledH1>Search for free.</StyledH1>
-        </Fade>
-        <Fade bottom delay={1000}>
-          <div>
-            <StyledH4>We believe that owning real estate should work for everyone, not just the wealthy.</StyledH4>
-            <StyledH4>We’ve pioneered algorithms to consolidate large amounts of public information to put everything you need to be informed about your real estate purchase right at your finger tips.</StyledH4>
-          </div>
-        </Fade>
+        <StyledH1>Search for free.</StyledH1>
+        <div>
+          <StyledH4>We believe that owning real estate should work for everyone, not just the wealthy.</StyledH4>
+          <StyledH4>We’ve pioneered algorithms to consolidate large amounts of public information to put everything you need to be informed about your real estate purchase right at your finger tips.</StyledH4>
+        </div>
       </StyledCol>
     ];
 
@@ -119,20 +113,14 @@ class LandingPage extends Component {
   sectionFour = () => {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
-          <Fade delay={isMobile ? 500 : 1000}>
-            <Img src={PhotoImg2} />
-          </Fade>
+        <Img src={PhotoImg2} />
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle}>
-        <Fade top delay={500}>
-          <StyledH1>Learn by doing.</StyledH1>
-        </Fade>
-        <Fade bottom delay={1000}>
-          <div>
-            <StyledH4>With REAX, you can learn to invest in the real estate as you build out your portfolio.</StyledH4>
-            <StyledH4>Discover new areas or property types through Tags, and track your favorites with a personalized news feed, and more.</StyledH4>
-          </div>
-        </Fade>
+        <StyledH1>Learn by doing.</StyledH1>
+        <div>
+          <StyledH4>With REAX, you can learn to invest in the real estate as you build out your portfolio.</StyledH4>
+          <StyledH4>Discover new areas or property types through Tags, and track your favorites with a personalized news feed, and more.</StyledH4>
+        </div>
       </StyledCol>
     ];
 
@@ -152,16 +140,16 @@ class LandingPage extends Component {
         align="middle"
       >
         <StyledCol {...colBaseStyle} style={{ marginTop: 64 }}>
-          <Fade top delay={500}>
+          <Fade delay={500}>
             <StyledH1>Real estate.</StyledH1>
             <StyledH1>Easier than ever before.</StyledH1>
           </Fade>
-          <Fade bottom delay={1500}>
+          <Fade bottom delay={1000}>
             <div>
               <StyledH4>REAX lets you learn where to invest in the market for free.</StyledH4>
             </div>
           </Fade>
-          <Fade delay={2500}>
+          <Fade delay={1500}>
             <Button
               type="primary"
               onClick={this.showSignup}
@@ -178,19 +166,13 @@ class LandingPage extends Component {
         </StyledColImg>
         {this.sectionTwo()}
         <StyledCol key="section-two-copy" {...colBaseStyle}>
-          <Fade top delay={500}>
-            <StyledH1>No manual needed.</StyledH1>
-          </Fade>
-          <Fade bottom delay={1000}>
-            <div>
-              <StyledH4>We’ve designed REAX to mimic stock exchanges. It’s fast, familiar, simple, and just works.</StyledH4>
-            </div>
-          </Fade>
+          <StyledH1>No manual needed.</StyledH1>
+          <div>
+            <StyledH4>We’ve designed REAX to mimic stock exchanges. It’s fast, familiar, simple, and just works.</StyledH4>
+          </div>
         </StyledCol>
         <StyledColImg key="section-three-img" {...colBaseStyle}>
-          <Fade delay={isMobile ? 500 : 1000}>
-            <div className="asset-placeholder" />
-          </Fade>
+          <div className="asset-placeholder" />
         </StyledColImg>
         {this.sectionFour()}
         <ReapForm
