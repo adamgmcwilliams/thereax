@@ -7,6 +7,8 @@ import media from '../../helpers/media';
 import Form from './Form';
 import TypedAssist from './TypedAssist';
 
+import './index.css';
+
 const colBaseStyle = {
   lg: 12,
   sm: 24,
@@ -14,11 +16,13 @@ const colBaseStyle = {
 };
 
 const Container = styled.div`
+  font-family: 'Fira Sans', sans-serif;
   padding: 35px;
   padding-top: 0px;
   font-size: 1.5em;
   text-align: center;
   ${media.sm`
+    font-family: 'Fira Sans', sans-serif;
     padding: 35px;
     font-size: 2em;
     text-align: left;

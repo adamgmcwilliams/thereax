@@ -7,6 +7,18 @@ import {
   Button,
   notification,
 } from 'antd';
+import styled from 'styled-components';
+
+import './index.css';
+
+const H1 = styled.h1`
+  font-weight: 700;
+  font-family: 'Fira Sans', sans-serif;
+`;
+
+const P = styled.p`
+  font-family: 'Fira Sans', sans-serif;
+`;
 
 const FormItem = Form.Item;
 
@@ -110,8 +122,8 @@ class RegistrationForm extends Component {
           <Col
             {...headerStyle}
           >
-            <h1> Make your money move </h1>
-            <p> REAX lets you invest smarter </p>
+            <H1> Make your money move </H1>
+            <P> REAX lets you invest smarter </P>
           </Col>
         </Row>
         <FormItem
