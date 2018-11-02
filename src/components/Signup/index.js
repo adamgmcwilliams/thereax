@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Col } from 'antd';
 import { Fade } from 'react-reveal';
 import styled from 'styled-components';
 
@@ -18,10 +18,6 @@ const colBaseStyle = {
 const Container = styled.div`
   padding: 35px;
   font-size: 2em;
-`;
-
-const HouseContainer = styled.div`
-  font-size: 4em;
 `;
 
 const typedStrings = [

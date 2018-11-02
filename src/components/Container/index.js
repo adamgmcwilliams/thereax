@@ -17,6 +17,26 @@ const LogoContainer = styled.div`
 `;
 
 class Container extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedKeys: this.resolveDefaultKey(),
+    };
+  }
+
+  resolveDefaultKey = () => {
+    const { pathname } = this.props.history.location;
+
+    if (pathname === '/') {
+      return ['home'];
+    }
+    else if (pathname === '/signup') {
+      return ['signup']
+    }
+
+  };
+
   render() {
     return (
       <Layout>
@@ -24,7 +44,7 @@ class Container extends Component {
         <Menu
           theme="light"
           mode="horizontal"
-          defaultSelectedKeys={['home']}
+          selectedKeys={this.state.selectedKeys}
           style={{ lineHeight: '64px' }}
         >
           <LogoContainer>
@@ -34,6 +54,10 @@ class Container extends Component {
             key="home"
             onClick={() => {
               history.push('/');
+
+              this.setState({
+                selectedKeys: ['home'],
+              });
             }}
           >
             Home
@@ -42,6 +66,10 @@ class Container extends Component {
             key="signup"
             onClick={() => {
               history.push('/signup');
+
+              this.setState({
+                selectedKeys: ['signup'],
+              });
             }}
           >
             Sign Up

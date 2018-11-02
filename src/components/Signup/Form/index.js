@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import {
   Form,
   Input,
-  Select,
   Row,
   Col,
   Button,
-  AutoComplete
+  notification,
 } from 'antd';
 
-import TypedAssist from '../TypedAssist';
-
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
+
+const notifications = {
+  success: {
+    message: 'Thank you!',
+    description: 'We received your email. We\'ll keep you posted',
+  },
+  error: {
+    message: 'Something went wrong',
+    description: 'Please try again with a valid email',
+  }
+};
 
 class RegistrationForm extends Component {
   state = {
@@ -25,10 +31,29 @@ class RegistrationForm extends Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          }
+        };
+
+        fetch(`/list/${values.email}`, config).then((response) => {
+          return response.json();
+        }).then((res) => {
+          if (res.statusCode === 500) {
+            return this.openNotificationWithIcon('error');
+          }
+          this.openNotificationWithIcon('success');
+          return this.props.onSuccess();
+        })
       }
     });
   }
+
+  openNotificationWithIcon = (type) => {
+    notification[type](notifications[type]);
+  };
 
   handleConfirmBlur = (e) => {
     const value = e.target.value;
@@ -52,30 +77,9 @@ class RegistrationForm extends Component {
     callback();
   }
 
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  }
-
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {

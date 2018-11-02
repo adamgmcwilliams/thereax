@@ -11,7 +11,7 @@ import './index.css';
 const App = () => {
   return (
     <Router history={history}>
-      <Container>
+      <Container history={history}>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
       </Container>
