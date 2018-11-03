@@ -1,3 +1,15 @@
+.asset-placeholder-home {
+  background-position: left center;
+  height: 1000px;
+  position: absolute;
+  right: 0;
+  top: -15%;
+  transform: translate(0, -37%);
+  width: 150%;
+
+  background-image: url("./vector_laptop_home.png");
+  background-size: auto 100%;
+}
 .asset-placeholder {
   background-position: left center;
   height: 1300px;
@@ -12,6 +24,10 @@
 }
 
 @media (max-width: 576px) {
+  .asset-placeholder-home {
+    height: 500px;
+    width: 142%;
+  }
   .asset-placeholder {
     height: 500px;
     width: 142%;

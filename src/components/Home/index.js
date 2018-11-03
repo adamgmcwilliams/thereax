@@ -164,7 +164,7 @@ class LandingPage extends Component {
         </StyledCol>
         <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }} paddingTop="70px">
           <Fade delay={isMobile ? 500 : 1500}>
-            <Img src={PhotoImg3} />
+            <div className="asset-placeholder-home" />
           </Fade>
         </StyledColImg>
         {this.sectionTwo()}
