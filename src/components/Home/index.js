@@ -16,7 +16,7 @@ import './index.css';
 
 const StyledH1 = styled.h1`
   margin-bottom: 0;
-  font-size: 3.2em;
+  font-size: 2.5em;
   font-weight: 600;
 
   ${media.sm`
