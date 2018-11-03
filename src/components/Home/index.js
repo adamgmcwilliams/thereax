@@ -10,6 +10,7 @@ import history from '../../helpers/history';
 import PhotoImg1 from './vector_phone_1.png';
 import PhotoImg2 from './vector_phone_2.png';
 import PhotoImg3 from './vector_phone_3.png';
+import PhotoImg4 from './vector_phone_4.png';
 
 import './index.css';
 
@@ -66,11 +67,10 @@ const StyledColImg = styled(Col)`
 const Img = styled.img`
   height: auto;
   width: 90%
+  width: ${props => props.width ? props.width : '90%'}
 
   ${media.sm`
     height: auto;
-    width: ${props => props.width ? props.width : '90%'}
-    width: 90%
   `}
 `;
 
@@ -116,7 +116,7 @@ class LandingPage extends Component {
   sectionFour = () => {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
-        <Img src={PhotoImg2} />
+        <Img src={PhotoImg4} width="70%" />
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="250px">
         <StyledH1>Learn by doing.</StyledH1>
