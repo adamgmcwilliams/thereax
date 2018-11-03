@@ -122,8 +122,8 @@ class RegistrationForm extends Component {
           <Col
             {...headerStyle}
           >
-            <H1> Make your money move </H1>
-            <P> REAX lets you invest smarter </P>
+            <H1>Break Into Real Estate Investing</H1>
+            <P>REAX lets you invest smarter by giving you everything you need to make the best investment decision. Sign up today!</P>
           </Col>
         </Row>
         <FormItem

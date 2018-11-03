@@ -149,7 +149,7 @@ class LandingPage extends Component {
           </Fade>
           <Fade bottom delay={1000}>
             <div>
-              <StyledH4>REAX lets you learn where to invest in the market for free.</StyledH4>
+              <StyledH4>REAX lets you learn where to invest in the market for free. You can search markets to discover fast-appreciating areas, view sales prices over time, and analyze investment deals.</StyledH4>
             </div>
           </Fade>
           <Fade delay={1500}>
