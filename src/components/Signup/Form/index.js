@@ -8,6 +8,7 @@ import {
   notification,
 } from 'antd';
 import styled from 'styled-components';
+import history from '../../../helpers/history';
 
 import './index.css';
 
@@ -50,7 +51,15 @@ class RegistrationForm extends Component {
           }
         };
 
-        fetch(`/list/${values.email}`, config).then((response) => {
+        this.openNotificationWithIcon('success');
+
+        console.log('should not try and make actual call');
+
+        setTimeout(() => {
+          history.push('./confirmation');
+        }, 1000)
+
+        /*fetch(`/list/${values.email}`, config).then((response) => {
           return response.json();
         }).then((res) => {
           if (res.statusCode === 500) {
@@ -58,7 +67,7 @@ class RegistrationForm extends Component {
           }
           this.openNotificationWithIcon('success');
           return this.props.onSuccess();
-        })
+        }) */
       }
     });
   }

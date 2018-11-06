@@ -10,12 +10,7 @@ const Confirmation = () => (
     align="middle"
   >
     <Col
-      lg={24}
-      sm={12}
-    >
-      <p> Hey </p>
-    </Col>
-    <Col
+      style={{ marginTop: 64, textAlign: 'center' }}
       lg={24}
       sm={12}
     >
