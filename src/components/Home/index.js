@@ -98,7 +98,7 @@ class LandingPage extends Component {
 
   sectionTwo = () => {
     const section = [
-      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="0px">
+      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="100px">
         <Img src={PhotoImg4} width="70%" />
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle} marginTop="100px">
