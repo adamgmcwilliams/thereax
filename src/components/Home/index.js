@@ -47,6 +47,7 @@ const StyledCol = styled(Col)`
     padding-left: 125px;
     padding-right: 125px;
     padding-bottom: 125px;
+    margin-top: 0px;
   `}
 `;
 
@@ -97,8 +98,8 @@ class LandingPage extends Component {
 
   sectionTwo = () => {
     const section = [
-      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="100px">
-        <Img src={PhotoImg1} />
+      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="0px">
+        <Img src={PhotoImg4} width="70%" />
       </StyledColImg>,
       <StyledCol key="section-two-copy" {...colBaseStyle} marginTop="100px">
         <StyledH1>Search for free.</StyledH1>
@@ -119,9 +120,9 @@ class LandingPage extends Component {
   sectionFour = () => {
     const section = [
       <StyledColImg key="section-two-img" {...colBaseStyle}>
-        <Img src={PhotoImg4} width="70%" />
+        <Img src={PhotoImg1} />
       </StyledColImg>,
-      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="250px">
+      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="200px">
         <StyledH1>Learn by doing.</StyledH1>
         <div>
           <StyledH4>With REAX, you can learn to invest in the real estate as you build out your portfolio.</StyledH4>
@@ -171,7 +172,7 @@ class LandingPage extends Component {
           </Fade>
         </StyledColImg>
         {this.sectionTwo()}
-        <StyledCol key="section-two-copy" {...colBaseStyle} paddingTop="20px">
+        <StyledCol key="section-two-copy" {...colBaseStyle} paddingTop="20px" marginTop="200px">
           <StyledH1>No manual needed.</StyledH1>
           <div>
             <StyledH4>We’ve designed REAX to mimic stock exchanges. It’s fast, familiar, simple, and just works.</StyledH4>
