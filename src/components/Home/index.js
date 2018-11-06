@@ -6,11 +6,12 @@ import { isMobile } from 'react-device-detect';
 import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
 import history from '../../helpers/history';
+import Divider from '../shared/Divider';
 
-import PhotoImg1 from './vector_phone_1.png';
-import PhotoImg2 from './vector_phone_2.png';
-import PhotoImg3 from './vector_phone_3.png';
-import PhotoImg4 from './vector_phone_4.png';
+import PhotoImg1 from './images/vector_phone_1.png';
+import PhotoImg2 from './images/vector_phone_2.png';
+import PhotoImg3 from './images/vector_phone_3.png';
+import PhotoImg4 from './images/vector_phone_4.png';
 
 import './index.css';
 
@@ -55,12 +56,14 @@ const StyledColImg = styled(Col)`
   padding-bottom: 80px;
   patting-top: 0px;
   margin-top: ${props => props.marginTop ? props.marginTop : '0'}
+  margin-bottom: 80px;
 
   ${media.sm`
     height: 100vh;
     text-align: left;
     padding: 125px;
     padding-top: ${props => props.paddingTop ? props.paddingTop : '125px'}
+    margin-bottom: 0px;
   `}
 `;
 
