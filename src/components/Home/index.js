@@ -125,7 +125,7 @@ class LandingPage extends Component {
       <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="200px">
         <StyledH1>Learn by doing.</StyledH1>
         <div>
-          <StyledH4>With REAX, you can learn to invest in the real estate as you build out your portfolio.</StyledH4>
+          <StyledH4>With REAX, you can learn to invest in real estate as you build out your portfolio.</StyledH4>
           <StyledH4>Discover new areas or property types through Tags, and track your favorites with a personalized news feed, and more.</StyledH4>
         </div>
       </StyledCol>
