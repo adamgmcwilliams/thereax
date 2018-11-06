@@ -6,11 +6,8 @@ import { isMobile } from 'react-device-detect';
 import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
 import history from '../../helpers/history';
-import Divider from '../shared/Divider';
 
 import PhotoImg1 from './images/vector_phone_1.png';
-import PhotoImg2 from './images/vector_phone_2.png';
-import PhotoImg3 from './images/vector_phone_3.png';
 import PhotoImg4 from './images/vector_phone_4.png';
 
 import './index.css';
