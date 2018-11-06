@@ -65,6 +65,7 @@ const StyledColImg = styled(Col)`
     padding: 125px;
     padding-top: ${props => props.paddingTop ? props.paddingTop : '125px'}
     margin-bottom: 0px;
+    margin-top: 0px;
   `}
 `;
 
