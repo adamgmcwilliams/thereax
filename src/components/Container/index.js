@@ -17,6 +17,13 @@ const LogoContainer = styled.div`
     left: 30px;
   `}
 `;
+const Divider = styled.hr`
+  border: none;
+  background-color: black;
+  width: 95%;
+  height: 1px;
+  margin-bottom: 40px;
+`;
 
 class Container extends Component {
   constructor(props) {
@@ -86,11 +93,13 @@ class Container extends Component {
           style={{
             textAlign: 'justify',
             backgroundColor: 'white',
+            fontSize: '.8em',
           }}
         >
           <Row
             gutter={64}
           >
+            <Divider />
             <Col
               lg={12}
               sm={24}
@@ -111,7 +120,7 @@ class Container extends Component {
               <p>Investors should be aware that system response, data, speed, and account access times are affected by many factors. The past performance of real estate markets, properties, blocks, neighborhoods, towns, counties, zip codes, and states do not guarantee future results or returns.</p>
               <p>Free usage refers to the elimination of a financial barrier to obtain the information aggregated through the REAX. There may be premium features which require transactions or fees to access.</p>
               <p>Real Estate Asset Exchange (REAX) is trademarked and a wholly owned subsidiary of CIBA Realty. By signing up for REAX you agree to comply with our terms and conditions.</p>
-              <p>© 2018 REAX. All Rights Reserved.</p>
+              <p style={{ fontWeight: 1000 }}>© 2018 REAX. All Rights Reserved.</p>
             </Col>
           </Row>
         </Footer>

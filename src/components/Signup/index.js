@@ -54,7 +54,7 @@ class Signup extends Component {
         <StyledCol
           {...colBaseStyle}
         >
-          <Fade bottom delay={100}>
+          <Fade left delay={100}>
             <Form />
           </Fade>
         </StyledCol>
