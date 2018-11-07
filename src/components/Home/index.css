@@ -1,21 +1,21 @@
 .asset-placeholder-home {
   background-position: left center;
-  height: 1000px;
+  height: 500px;
   position: absolute;
   right: 0;
-  top: -15%;
+  top: 17%;
   transform: translate(0, -37%);
-  width: 150%;
+  width: 160%;
 
   background-image: url("./images/vector_laptop_home.png");
   background-size: auto 100%;
 }
 .asset-placeholder {
   background-position: left center;
-  height: 1300px;
+  height: 600px;
   position: absolute;
   right: 0;
-  top: 20%;
+  top: 30%;
   transform: translate(0, -37%);
   width: 150%;
 
@@ -25,11 +25,13 @@
 
 @media (max-width: 576px) {
   .asset-placeholder-home {
-    height: 500px;
-    width: 142%;
+    top: 0;
+    height: 240px;
+    width: 139%;
   }
   .asset-placeholder {
-    height: 500px;
-    width: 142%;
+    top: 0;
+    height: 240px;
+    width: 140%;
   }
 }
