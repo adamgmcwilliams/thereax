@@ -30,7 +30,7 @@ const StyledH4 = styled.h4`
 `;
 
 const StyledCol = styled(Col)`
-  height: 80vh;
+  height: 60vh;
   text-align: center;
   padding-top: ${props => props.paddingTop ? props.paddingTop : '120px'}
   padding-left: 60px;
@@ -49,12 +49,11 @@ const StyledCol = styled(Col)`
 `;
 
 const StyledColImg = styled(Col)`
-  height: 60vh;
+  height: 50vh;
   text-align: center;
   padding-bottom: 80px;
   patting-top: 0px;
   margin-top: ${props => props.marginTop ? props.marginTop : '0'}
-  margin-bottom: 80px;
 
   ${media.sm`
     height: 100vh;
@@ -96,10 +95,10 @@ class LandingPage extends Component {
 
   sectionTwo = () => {
     const section = [
-      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="100px">
+      <StyledColImg key="section-two-img" {...colBaseStyle} marginTop="0px">
         <Img src={PhotoImg4} width="70%" />
       </StyledColImg>,
-      <StyledCol key="section-two-copy" {...colBaseStyle} marginTop="100px">
+      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTop="0px" marginTop="0px">
         <StyledH1>Search for free.</StyledH1>
         <div>
           <StyledH4>We believe that owning real estate should work for everyone, not just the wealthy.</StyledH4>
@@ -120,7 +119,7 @@ class LandingPage extends Component {
       <StyledColImg key="section-two-img" {...colBaseStyle}>
         <Img src={PhotoImg1} />
       </StyledColImg>,
-      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="200px">
+      <StyledCol key="section-two-copy" {...colBaseStyle} paddingTopD="200px" paddingTop="0px">
         <StyledH1>Learn by doing.</StyledH1>
         <div>
           <StyledH4>With REAX, you can learn to invest in real estate as you build out your portfolio.</StyledH4>
@@ -164,7 +163,7 @@ class LandingPage extends Component {
             </Button>
           </Fade>
         </StyledCol>
-        <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }} paddingTop="70px">
+        <StyledColImg {...colBaseStyle} style={{ marginTop: 64 }} paddingTop="100px">
           <Fade delay={isMobile ? 500 : 1500}>
             <div className="asset-placeholder-home" />
           </Fade>
