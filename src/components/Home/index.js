@@ -175,7 +175,7 @@ class LandingPage extends Component {
             <StyledH4>We’ve designed REAX to mimic stock exchanges. It’s fast, familiar, simple, and just works.</StyledH4>
           </div>
         </StyledCol>
-        <StyledColImg key="section-three-img" {...colBaseStyle}>
+        <StyledColImg key="section-three-img" {...colBaseStyle} marginTop="40px">
           <div className="asset-placeholder" />
         </StyledColImg>
         {this.sectionFour()}
