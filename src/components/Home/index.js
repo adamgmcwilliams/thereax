@@ -145,7 +145,7 @@ class LandingPage extends Component {
       >
         <StyledCol {...colBaseStyle} style={{ marginTop: 64 }} paddingTop="60px">
           <Fade delay={500}>
-            <StyledH1>Real estate.</StyledH1>
+            <StyledH1>Real estate investing.</StyledH1>
             <StyledH1>Easier than ever before.</StyledH1>
           </Fade>
           <Fade bottom delay={1000}>
