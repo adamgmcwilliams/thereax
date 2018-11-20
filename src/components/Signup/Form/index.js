@@ -51,8 +51,6 @@ class RegistrationForm extends Component {
           }
         };
 
-        this.openNotificationWithIcon('success');
-
         fetch(`/list/${values.email}`, config).then((response) => {
           return response.json();
         }).then((res) => {
@@ -64,7 +62,9 @@ class RegistrationForm extends Component {
           setTimeout(() => {
             history.push('./confirmation');
           }, 1000)
-        });
+        }).catch(() => {
+          this.openNotificationWithIcon('error');
+        })
       }
     });
   }
