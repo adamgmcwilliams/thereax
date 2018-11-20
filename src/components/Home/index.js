@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Row, Col, Button } from 'antd';
 import { Fade } from 'react-reveal';
 import { isMobile } from 'react-device-detect';
-import ReapForm from '../ReapForm';
 import media from '../../helpers/media';
 import history from '../../helpers/history';
 
@@ -179,12 +178,6 @@ class LandingPage extends Component {
           <div className="asset-placeholder" />
         </StyledColImg>
         {this.sectionFour()}
-        <ReapForm
-          message="Some copy"
-          showModal={this.state.showModal}
-          onClose={this.onFailure}
-          onSuccess={this.onSuccess}
-        />
       </Row>
     );
   }

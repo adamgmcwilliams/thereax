@@ -53,7 +53,6 @@ class RegistrationForm extends Component {
 
         this.openNotificationWithIcon('success');
 
-
         fetch(`/list/${values.email}`, config).then((response) => {
           return response.json();
         }).then((res) => {
