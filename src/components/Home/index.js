@@ -23,6 +23,15 @@ const StyledH1 = styled.h1`
   `}
 `;
 
+const CtaHeader = styled.h1`
+  font-size: 2em;
+
+  ${media.sm`
+    font-size: 3em;
+    margin-bottom: 50px;
+  `}
+`;
+
 const StyledH4 = styled.h4`
   margin-top: 20px;
   margin-bottom: 20px;
@@ -178,6 +187,29 @@ class LandingPage extends Component {
           <div className="asset-placeholder" />
         </StyledColImg>
         {this.sectionFour()}
+        <Col
+          lg={24}
+          sm={24}
+          style={{
+            textAlign: 'center'
+          }}
+        >
+          <Fade delay={500}>
+            <CtaHeader>
+              Ready to take a hold of your real estate investment?
+            </CtaHeader>
+          </Fade>
+
+          <Fade delay={1000}>
+            <Button
+              type="primary"
+              onClick={this.showSignup}
+              size="large"
+            >
+              Sign Up
+            </Button>
+          </Fade>
+        </Col>
       </Row>
     );
   }
