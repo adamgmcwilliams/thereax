@@ -145,32 +145,6 @@ class RegistrationForm extends Component {
             <Input size="large" placeholder="email" />
           )}
         </FormItem>
-        <FormItem
-          {...tailFormItemLayout}
-        >
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, message: 'Please input your password!',
-            }, {
-              validator: this.validateToNextPassword,
-            }],
-          })(
-            <Input size="large" placeholder="password" type="password" />
-          )}
-        </FormItem>
-        <FormItem
-          {...tailFormItemLayout}
-        >
-          {getFieldDecorator('confirm', {
-            rules: [{
-              required: true, message: 'Please confirm your password!',
-            }, {
-              validator: this.compareToFirstPassword,
-            }],
-          })(
-            <Input size="large" placeholder="confirm password" type="password" onBlur={this.handleConfirmBlur} />
-          )}
-        </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button
             size="large"

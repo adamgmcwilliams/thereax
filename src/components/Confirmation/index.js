@@ -45,11 +45,6 @@ class Confirmation extends Component {
         >
           <Wrapper>
             <Fade delay={500}>
-              <Header>
-                Thank you for signing up
-              </Header>
-            </Fade>
-            <Fade delay={1000}>
               <p>A note from our founding team:</p>
               <p>
                 What's the largest investment you'll make in your entire life? Your investment property? Your latest flip? Your house?</p>
@@ -58,11 +53,18 @@ class Confirmation extends Component {
                 We are choosing to be active by solving those and many more issues related to real estate investing.
                 We hope that everyone will use our product to learn where to invest in real estate, to track the value of their homes/investments, to analyze the best deals off and on-market, and to generate long-term wealth as a real estate investor.
               </p>
+              <p>We are not ready to launch our product just yet!</p>
               <p>
-                We are not ready to launch our product just yet! But we are actively working toward a finished product.
-                We know how valuable this product is going to be for so many people and want to get it into your hands as quickly as possible.
-                If you would like to donate to us, or invest to help us move faster please click the link below. In exchange we will provide early access to the product before our larger launch.
+                We are actively working toward a finished product.
               </p>
+              <p>
+                If you would like to learn more or invest to help us move faster, please email adamgmcwilliams@gmail.com.
+              </p>
+            </Fade>
+            <Fade delay={2000}>
+              <Header>
+                Thank you for signing up
+              </Header>
             </Fade>
           </Wrapper>
         </Col>
