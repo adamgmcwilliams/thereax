@@ -60,6 +60,18 @@ class Container extends Component {
               <h1> R | E | A | X </h1>
             </LogoContainer>
             <Menu.Item
+              key="home"
+              onClick={() => {
+                history.push('/');
+
+                this.setState({
+                  selectedKeys: ['home'],
+                });
+              }}
+            >
+              Home
+            </Menu.Item>
+            <Menu.Item
               key="signup"
               onClick={() => {
                 history.push('/signup');
