@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Menu, Layout, Row, Col } from 'antd';
+import { Menu, Layout, Row, Col, Input } from 'antd';
 import styled from 'styled-components';
+
 import history from '../../helpers/history';
 import media from '../../helpers/media';
 
@@ -15,6 +16,18 @@ const LogoContainer = styled.div`
     position: absolute;
     top: 0;
     left: 30px;
+  `}
+`;
+const SearchBoxContainer = styled.div`
+  position: absolute;
+  bottom: 2%;
+  left: 20%;
+  width: 35%;
+  bottom: 8%;
+  ${media.sm`
+    position: absolute;
+    bottom: 8%;
+    left: 20%;
   `}
 `;
 const Divider = styled.hr`
@@ -46,6 +59,11 @@ class Container extends Component {
 
   };
 
+  isAnalyticsComponent = () => {
+    const { pathname } = this.props.history.location;
+    return pathname === '/analytics'
+  }
+
   render() {
     return (
       <Layout>
@@ -58,7 +76,12 @@ class Container extends Component {
           >
             <LogoContainer>
               <h1> R | E | A | X </h1>
-            </LogoContainer>
+            </ LogoContainer>
+            {this.isAnalyticsComponent() &&
+              <SearchBoxContainer >
+                <Input placeholder="Search Districts" maxLength={5000} width={100} />
+              </ SearchBoxContainer>
+            }
             <Menu.Item
               key="home"
               onClick={() => {
