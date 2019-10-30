@@ -6,6 +6,7 @@ import LandingPage from '../components/Home';
 import Container from '../components/Container';
 import Signup from '../components/Signup';
 import Confirmation from '../components/Confirmation';
+import Analytics from '../components/Analytics';
 
 import './index.css';
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/confirmation" component={Confirmation} />
+        <Route exact path="/analytics" component={Analytics} />
       </Container>
     </Router>
   );
