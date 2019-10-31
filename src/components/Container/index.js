@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import history from '../../helpers/history';
 import media from '../../helpers/media';
-
+import Search from '../Search';
 import './index.css';
 
 const { Header, Content, Footer } = Layout;
@@ -18,18 +18,7 @@ const LogoContainer = styled.div`
     left: 30px;
   `}
 `;
-const SearchBoxContainer = styled.div`
-  position: absolute;
-  bottom: 2%;
-  left: 20%;
-  width: 35%;
-  bottom: 8%;
-  ${media.sm`
-    position: absolute;
-    bottom: 8%;
-    left: 20%;
-  `}
-`;
+
 const Divider = styled.hr`
   border: none;
   background-color: black;
@@ -78,9 +67,7 @@ class Container extends Component {
               <h1> R | E | A | X </h1>
             </ LogoContainer>
             {this.isAnalyticsComponent() &&
-              <SearchBoxContainer >
-                <Input placeholder="Search Districts" maxLength={5000} width={100} />
-              </ SearchBoxContainer>
+              <Search />
             }
             <Menu.Item
               key="home"
