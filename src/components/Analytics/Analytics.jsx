@@ -3,6 +3,7 @@ import { Row } from 'antd';
 
 import MarketDetail from './MarketDetail';
 import MarketGraph from './MarketGraph';
+import LocalExpertise from './LocalExpertise';
 import { AnalyticsContainer } from './Analytics';
 
 class Analytics extends React.Component {
@@ -11,6 +12,7 @@ class Analytics extends React.Component {
       <AnalyticsContainer>
         <MarketDetail />
         <MarketGraph />
+        <LocalExpertise />
       </AnalyticsContainer>
     );
   }
