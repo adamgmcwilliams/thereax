@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LocalExpertiseContainer = styled.div`
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 2%;
   height: 40vh;
   width: 12%;
   background-color: #eeeeee;

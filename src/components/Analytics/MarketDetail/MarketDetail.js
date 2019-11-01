@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const MarketDetailContainer = styled.div`
@@ -26,6 +25,8 @@ export const MeasurementDetailTable = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10%;
+  height: 23.8vh;
+  justify-content: space-evenly;
 `
 export const MeasurementDetailRow = styled.div`
   display: flex;
