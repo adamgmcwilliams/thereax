@@ -7,6 +7,7 @@ export const MarketDetailContainer = styled.div`
   margin-top: 5%;
   color: #686868;
   width: 20%;
+  margin-left: 3%;
 `;
 
 export const MarketName = styled.div`
