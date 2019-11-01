@@ -23,7 +23,7 @@ class MarketGraph extends React.Component {
   render() {
     return (
     <MarketGraphContainer>
-      <XYPlot width={600} height={290} xType="ordinal" style={{border: "1px solid black"}} ><XAxis/>
+      <XYPlot width={600} height={310} xType="ordinal" style={{border: "1px solid black"}} ><XAxis/>
       <LineSeries data={this.state.sampleData} />
       </XYPlot>
     </MarketGraphContainer>
