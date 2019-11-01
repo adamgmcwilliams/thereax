@@ -15,7 +15,7 @@ export const AnalyticsContainer = styled.div`
   background-color: #ffffff;
   color: #686868;
   font-size: 12px;
-  height: 70vh;
+  height: 100vh;
   `
 
 export const AboutContainer = styled.div`
