@@ -5,8 +5,13 @@ import { Avatar } from 'antd';
 
 import { CommentListContainer, CommentContainerHeading, NewCommentContainer, NewCommentUser } from './CommentList.js'
 import Comment from './Comment';
+import Server from '../../../apis/reaxServer';
 
 class CommentList extends React.Component {
+  constructor() {
+    super();
+    this.state = { comments: [] }
+  }
   render() {
     return(
       <CommentListContainer>
@@ -19,14 +24,21 @@ class CommentList extends React.Component {
           </NewCommentUser>
           <Input placeholder="Comment..." maxLength={4000} width={90} />
         </NewCommentContainer>
-        <Comment commentText="Hello its good" commentTime="6 hours go" />
-        <Comment commentText="Hello its good" commentTime="6 hours go" />
-        <Comment commentText="Hello its good" commentTime="6 hours go" />
-        <Comment commentText="Hello its good" commentTime="6 hours go" />
-        <Comment commentText="Hello its good" commentTime="6 hours go" />
+          {this.renderComments()}
       </CommentListContainer>
     );
   }
+
+  async componentDidMount() {
+    let response = await Server.get('./comments');
+    let comments  = response.data;
+    this.setState({ comments: comments })
+  }
+
+  renderComments = () => {
+    return this.state.comments.map((comment) => <Comment comment={comment} />)
+  }
+
 }
 
 export default CommentList;
