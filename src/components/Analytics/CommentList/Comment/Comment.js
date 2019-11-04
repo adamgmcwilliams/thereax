@@ -21,13 +21,29 @@ export const CommentText = styled.div`
 export const CommentMetaDataContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 50%:
+  width: 30%;
+  justify-content: space-between;
 `
 export const ComentTime = styled.div`
   font-size: 0.7em;
+  width: 50%:
 `
 export const CommentLikesAndDislikes = styled.div`
   display: flex;
   flex-direction: row;
+  width: 50%;
   justify-content: space-between;
+`
+export const CommentLikeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+`
+export const CommentDislikeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+`
+export const TotalLikesAndDislikes = styled.div`
+  font-size: 0.6em;
 `

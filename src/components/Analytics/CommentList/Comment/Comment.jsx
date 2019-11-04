@@ -2,6 +2,8 @@ import React from 'react';
 import Faker from 'faker';
 import { Avatar } from 'antd';
 import Moment from 'react-moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 
 import {
   CommentContainer,
@@ -10,7 +12,10 @@ import {
   CommentText,
   CommentMetaDataContainer,
   ComentTime,
-  CommentLikesAndDislikes
+  CommentLikesAndDislikes,
+  CommentLikeContainer,
+  CommentDislikeContainer,
+  TotalLikesAndDislikes
 } from './Comment.js'
 
 class Comment extends React.Component {
@@ -29,7 +34,16 @@ class Comment extends React.Component {
           <CommentText> {this.getCommentText()} </CommentText>
           <CommentMetaDataContainer>
             <ComentTime> <Moment parse="YYYY-MM-DD HH:mm" fromNow> {this.getCommentTime()} ago</Moment> </ComentTime>
-            <CommentLikesAndDislikes> </CommentLikesAndDislikes>
+            <CommentLikesAndDislikes>
+              <CommentLikeContainer>
+                <FontAwesomeIcon icon={faThumbsUp} size="xs" />
+                <TotalLikesAndDislikes> 50 </TotalLikesAndDislikes>
+              </CommentLikeContainer>
+              <CommentDislikeContainer>
+               <FontAwesomeIcon icon={faThumbsDown} size="xs" />
+               <TotalLikesAndDislikes> 40 </TotalLikesAndDislikes>
+              </CommentDislikeContainer>
+            </CommentLikesAndDislikes>
           </CommentMetaDataContainer>
         </CommentContentContainer>
       </CommentContainer>
