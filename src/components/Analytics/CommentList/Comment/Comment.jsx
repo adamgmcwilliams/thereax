@@ -1,6 +1,7 @@
 import React from 'react';
 import Faker from 'faker';
 import { Avatar } from 'antd';
+import Moment from 'react-moment';
 
 import {
   CommentContainer,
@@ -15,19 +16,19 @@ import {
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-    let { commentText, commentTime } = props;
-    this.state = { commentText: commentText, commentTime: commentTime }
+    let { comment } = props;
+    this.state = { commentText: comment.comment, commentTime: comment.timestamp, commentUserPhoto: comment.userPhoto }
   }
   render() {
     return(
       <CommentContainer>
         <CommentUser>
-          <Avatar size={30} src={Faker.image.avatar()} />
+          <Avatar size={30} src={this.getCommentUserPhoto()} />
         </CommentUser>
         <CommentContentContainer>
           <CommentText> {this.getCommentText()} </CommentText>
           <CommentMetaDataContainer>
-            <ComentTime> {this.getCommentTime()} </ComentTime>
+            <ComentTime> <Moment parse="YYYY-MM-DD HH:mm" fromNow> {this.getCommentTime()} ago</Moment> </ComentTime>
             <CommentLikesAndDislikes> </CommentLikesAndDislikes>
           </CommentMetaDataContainer>
         </CommentContentContainer>
@@ -41,6 +42,10 @@ class Comment extends React.Component {
 
   getCommentTime = () => {
     return this.state.commentTime;
+  }
+
+  getCommentUserPhoto = () => {
+    return this.state.commentUserPhoto;
   }
 }
 
