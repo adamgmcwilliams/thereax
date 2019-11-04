@@ -1,32 +1,41 @@
 import React from 'react';
-import Faker from 'faker';
 import { Avatar } from 'antd';
 
-import { ExpertContainer, ExpertTitle, ExpertDetail, ExpertName, ExpertLicenceNumber } from './Expert.js';
+import { ExpertContainer, ExpertTitle, ExpertDetail, ExpertName, ExpertPhoneNumber } from './Expert.js';
 
 class Expert extends React.Component {
   constructor(props) {
     super(props);
-    let { title } = props;
-    this.state = { title: title }
+    let { expert } = props;
+    this.state = { title: expert.occupation, name: expert.name, phone: expert.phone, photo_url: expert.photo }
   }
   render() {
     return(
       <ExpertContainer>
-        <Avatar size={50} src={Faker.image.avatar()} />
+        <Avatar size={50} src={this.state.photo_url} />
         <ExpertDetail>
           <ExpertTitle>
             {this.state.title}
           </ExpertTitle>
           <ExpertName>
-            {Faker.name.findName()}
+            {this.state.name}
           </ExpertName>
-          <ExpertLicenceNumber>
-            {Faker.random.number()}
-          </ExpertLicenceNumber>
+          <ExpertPhoneNumber>
+            {this.state.phone}
+          </ExpertPhoneNumber>
         </ExpertDetail>
       </ExpertContainer>
     );
+  }
+
+  getDerivedStateFromProps(nextProps, prevState) {
+    let expert = nextProps.expert;
+    return {
+      title: expert.occupation,
+      name: expert.name,
+      phone: expert.phone,
+      photo_url: expert.photo_url
+    }
   }
 }
 
