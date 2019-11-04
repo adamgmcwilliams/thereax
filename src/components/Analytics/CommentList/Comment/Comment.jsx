@@ -22,7 +22,8 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     let { comment } = props;
-    this.state = { commentText: comment.comment, commentTime: comment.timestamp, commentUserPhoto: comment.userPhoto }
+    this.state = { commentText: comment.comment, commentTime: comment.timestamp, commentUserPhoto: comment.userPhoto, likes: comment.likes,
+      dislikes: comment.dislikes }
   }
   render() {
     return(
@@ -37,11 +38,11 @@ class Comment extends React.Component {
             <CommentLikesAndDislikes>
               <CommentLikeContainer>
                 <FontAwesomeIcon icon={faThumbsUp} size="xs" />
-                <TotalLikesAndDislikes> 50 </TotalLikesAndDislikes>
+                <TotalLikesAndDislikes> {this.getLikes()} </TotalLikesAndDislikes>
               </CommentLikeContainer>
               <CommentDislikeContainer>
                <FontAwesomeIcon icon={faThumbsDown} size="xs" />
-               <TotalLikesAndDislikes> 40 </TotalLikesAndDislikes>
+               <TotalLikesAndDislikes> {this.getDislikes()} </TotalLikesAndDislikes>
               </CommentDislikeContainer>
             </CommentLikesAndDislikes>
           </CommentMetaDataContainer>
@@ -60,6 +61,14 @@ class Comment extends React.Component {
 
   getCommentUserPhoto = () => {
     return this.state.commentUserPhoto;
+  }
+
+  getLikes = () => {
+    return this.state.likes;
+  }
+
+  getDislikes = () => {
+    return this.state.dislikes;
   }
 }
 
