@@ -48,7 +48,6 @@ class Market extends React.Component {
   }
 
   getPriceChangeColor = () => {
-    console.log("Hello i am in it")
     return this.state.priceChange.includes('+') ? '#ff0000' : '#80ff00'
   }
 }
