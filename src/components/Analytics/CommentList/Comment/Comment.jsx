@@ -1,5 +1,4 @@
 import React from 'react';
-import Faker from 'faker';
 import { Avatar } from 'antd';
 import Moment from 'react-moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
