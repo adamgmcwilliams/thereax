@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from 'antd';
+import { connect } from 'react-redux';
 
 import MarketDetail from './MarketDetail';
 import MarketGraph from './MarketGraph';
@@ -7,6 +7,7 @@ import LocalExpertise from './LocalExpertise';
 import MarketList from './MarketList';
 import CommentList from './CommentList';
 import { AnalyticsContainer, MarketDataContainer, AboutContainer, AboutHeading, AboutText } from './Analytics';
+import { fetchStateData } from '../../redux/actions';
 
 class Analytics extends React.Component {
   render() {
@@ -28,6 +29,14 @@ class Analytics extends React.Component {
       </AnalyticsContainer>
     );
   }
+
+  componentDidMount() {
+    this.props.fetchStateData();
+  }
 }
 
-export default Analytics;
+const mapStateToProps = (state) => {
+  return { stateData: state.stateData }
+}
+
+export default connect( mapStateToProps, { fetchStateData })(Analytics);
