@@ -28,7 +28,7 @@ class Expert extends React.Component {
     );
   }
 
-  getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     let expert = nextProps.expert;
     return {
       title: expert.occupation,
