@@ -1,23 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { MarketListContainer, MarketListHeading } from './MarketList.js';
 import Market from './Market';
 
 class MaretList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { markets: [] }
+  }
   render() {
     return(
       <MarketListContainer>
         <MarketListHeading>
           Markets
         </MarketListHeading>
-        <Market city="Jeresy City" state="New Jeresy" price={121.56} priceChange="+2.35(1.84%)" />
-        <Market city="West New York" state="New Jeresy" price={121.56} priceChange="-1.35(0.84%)" />
-        <Market city="Secaucus" state="New Jeresy" price={121.56} priceChange="+2.35(1.84%)"/>
-        <Market city="Newark" state="New Jeresy" price={121.56} priceChange="+2.35(1.84%)"/>
-        <Market city="Bayonne" state="New Jeresy" price={121.56} priceChange="-0.35(0.34%)"/>
+        {this.renderMarkets()}
       </MarketListContainer>
     )
   }
+
+  renderMarkets = () => {
+    return this.state.markets.map((market) => {
+      let city = Object.keys(market)[0];
+      let finalAgg = market[city].finalAgg;
+      return <Market city={city} finalAgg={finalAgg} priceChange="+$2.35(1.84%)" state="New Jeresy" />
+    })
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      markets: nextProps.stateData.markets
+    }
+  }
 }
 
-export default MaretList;
+const mapStateToProps = (state) => {
+  return { stateData: state.stateData }
+}
+
+export default connect(mapStateToProps)(MaretList);

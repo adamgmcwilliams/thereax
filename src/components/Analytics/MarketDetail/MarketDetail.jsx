@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import {
   MarketDetailContainer,
@@ -8,17 +9,24 @@ import {
   MeasurementDetailTable,
   MeasurementDetailRow,
   MeasurementDetailRowItem
-  } from './MarketDetail';
+} from './MarketDetail';
 
 class MarketDetail extends React.Component {
+
+  constructor(props) {
+    super(props);
+    let { stateData, currentSelectedMarket } = props;
+    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, currentMarket: {} }
+  }
+
   render() {
     return(
       <MarketDetailContainer>
         <MarketName>
-          Plainfield, NJ
+          {this.getMarketName()}
         </ MarketName>
         <MarketAveragePrice>
-          $99.82
+          ${this.getMarketAvergePrice()}
         </ MarketAveragePrice>
         <PriceChange>
           +$0.15 (0.09%)
@@ -26,28 +34,68 @@ class MarketDetail extends React.Component {
         <MeasurementDetailTable>
           <MeasurementDetailRow>
             <MeasurementDetailRowItem> 52 WK High </ MeasurementDetailRowItem>
-            <MeasurementDetailRowItem> $101.34 </ MeasurementDetailRowItem>
+            <MeasurementDetailRowItem> ${this.getHighValue()} </ MeasurementDetailRowItem>
           </ MeasurementDetailRow>
           <MeasurementDetailRow>
             <MeasurementDetailRowItem> 52 WK Low </ MeasurementDetailRowItem>
-            <MeasurementDetailRowItem> $92.86 </ MeasurementDetailRowItem>
+            <MeasurementDetailRowItem> ${this.getLowValue()} </ MeasurementDetailRowItem>
           </ MeasurementDetailRow>
           <MeasurementDetailRow>
             <MeasurementDetailRowItem> Volume </ MeasurementDetailRowItem>
-            <MeasurementDetailRowItem> 15,765 </ MeasurementDetailRowItem>
+            <MeasurementDetailRowItem> {this.getMarketVolume()} </ MeasurementDetailRowItem>
           </MeasurementDetailRow>
           <MeasurementDetailRow>
             <MeasurementDetailRowItem> Market Cap </ MeasurementDetailRowItem>
-            <MeasurementDetailRowItem> $6.29B </ MeasurementDetailRowItem>
+            <MeasurementDetailRowItem> ${this.getMarketCap()} </ MeasurementDetailRowItem>
           </MeasurementDetailRow>
           <MeasurementDetailRow>
             <MeasurementDetailRowItem> Avg sqft/unit </ MeasurementDetailRowItem>
-            <MeasurementDetailRowItem> 979 </ MeasurementDetailRowItem>
+            <MeasurementDetailRowItem> {this.getAverageArea()} </ MeasurementDetailRowItem>
           </MeasurementDetailRow>
         </MeasurementDetailTable>
       </ MarketDetailContainer>
     )
   }
+
+  getMarketName = () => {
+    return !!this.currentMarket ? "Dummy Market" : "Belleville"
+  }
+
+  getMarketAvergePrice = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.finalAgg
+  }
+
+  getMarketVolume = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.volume
+  }
+
+  getMarketCap = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.marketCap
+  }
+
+  getAverageArea = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.avgSqft
+  }
+
+  getHighValue = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.high
+  }
+
+  getLowValue = () => {
+    return !!this.currentMarket ? "25.2" : this.state.stateData.data.low
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      stateData: nextProps.stateData,
+      currentSelectedMarket: nextProps.currentSelectedMarket
+    }
+  }
+
 }
 
-export default MarketDetail;
+const mapStateToProps = (state) => {
+  return { stateData: state.stateData, currentSelectedMarket: state.currentSelectedMarket }
+}
+
+export default connect(mapStateToProps)(MarketDetail);

@@ -10,6 +10,11 @@ import { AnalyticsContainer, MarketDataContainer, AboutContainer, AboutHeading, 
 import { fetchStateData } from '../../redux/actions';
 
 class Analytics extends React.Component {
+  constructor(props) {
+    super(props);
+    let { stateData, currentSelectedMarket } = props;
+    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket }
+  }
   render() {
     return(
       <AnalyticsContainer>
@@ -22,7 +27,7 @@ class Analytics extends React.Component {
         <AboutContainer>
           <AboutHeading> About </AboutHeading>
           <AboutText>
-            Knowing what's happening in the real estate market is a key factor in a successful transaction, whether you're the buyer, seller, or REALTOR®. That's why NJ REALTORS® has partnered with the MLSs in our state to compile the best, most comprehensive data available about the New Jersey housing market, powered by 10K Research & Marketing.
+            {this.getAboutText()}
           </AboutText>
         </AboutContainer>
         <CommentList />
@@ -33,10 +38,21 @@ class Analytics extends React.Component {
   componentDidMount() {
     this.props.fetchStateData();
   }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      stateData: nextProps.stateData,
+      currentSelectedMarket: nextProps.currentSelectedMarket
+    }
+  }
+
+  getAboutText = () => {
+    return !!this.state.currentSelectedMarket ? "Dummy About text" : this.state.stateData.data.about;
+  }
 }
 
 const mapStateToProps = (state) => {
-  return { stateData: state.stateData }
+  return { stateData: state.stateData, currentSelectedMarket: state.currentSelectedMarket }
 }
 
 export default connect( mapStateToProps, { fetchStateData })(Analytics);
