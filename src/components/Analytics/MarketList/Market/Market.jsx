@@ -5,8 +5,8 @@ import { MarketContainer, CityStateContainer, MarketPriceContainer, MarketCity, 
 class Market extends React.Component {
   constructor(props) {
     super(props);
-    let { city, state, price, priceChange } = props;
-    this.state = { city: city, state: state, price: price, priceChange: priceChange }
+    let { city, state, finalAgg, priceChange } = props;
+    this.state = { city: city, state: state, finalAgg: finalAgg, priceChange: priceChange }
   }
   render() {
     return(
@@ -21,7 +21,7 @@ class Market extends React.Component {
         </CityStateContainer>
         <MarketPriceContainer>
           <MarketPrice>
-            {this.getPrice()}
+            ${this.getFinalAgg()}
           </MarketPrice>
           <MarketChangeInPrice style={{ color: `${this.getPriceChangeColor()}` }} >
             {this.getPriceChange()}
@@ -32,15 +32,15 @@ class Market extends React.Component {
   }
 
   getCity = () => {
-    return this.state.city;
+    return this.state.city.toUpperCase();
   }
 
   getState = () => {
     return this.state.state;
   }
 
-  getPrice = () => {
-    return this.state.price;
+  getFinalAgg = () => {
+    return this.state.finalAgg;
   }
 
   getPriceChange = () => {
@@ -49,6 +49,15 @@ class Market extends React.Component {
 
   getPriceChangeColor = () => {
     return this.state.priceChange.includes('+') ? '#ff0000' : '#80ff00'
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      city: nextProps.city,
+      state: nextProps.state,
+      finalAgg: nextProps.finalAgg,
+      priceChange: nextProps.priceChange
+    }
   }
 }
 

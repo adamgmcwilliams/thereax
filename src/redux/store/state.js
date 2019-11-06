@@ -1,4 +1,9 @@
 export const initialState = {
-  stateData : {},
+  stateData : {
+    data: {
+      about: ""
+    },
+    markets: []
+  },
   currentSelectedMarket: ""
 };
