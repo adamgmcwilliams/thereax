@@ -25,7 +25,7 @@ class MaretList extends React.Component {
     return this.state.markets.map((market) => {
       let city = Object.keys(market)[0];
       let finalAgg = market[city].finalAgg;
-      return <Market city={city} finalAgg={finalAgg} priceChange="+$2.35(1.84%)" state="New Jeresy" />
+      return <Market city={city} finalAgg={finalAgg} priceChange="+$2.35(1.84%)" state="New Jeresy" market={market} />
     })
   }
 

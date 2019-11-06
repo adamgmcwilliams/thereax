@@ -16,7 +16,7 @@ class MarketDetail extends React.Component {
   constructor(props) {
     super(props);
     let { stateData, currentSelectedMarket } = props;
-    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, currentMarket: {} }
+    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, currentCity: "" }
   }
 
   render() {
@@ -58,37 +58,47 @@ class MarketDetail extends React.Component {
   }
 
   getMarketName = () => {
-    return !!this.currentMarket ? "Dummy Market" : "Belleville"
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ? this.state.currentCity.toUpperCase() : "Belleville"
   }
 
   getMarketAvergePrice = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.finalAgg
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ? currentMarket[this.state.currentCity].finalAgg : this.state.stateData.data.finalAgg
   }
 
   getMarketVolume = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.volume
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ?  currentMarket[this.state.currentCity].volume : this.state.stateData.data.volume
   }
 
   getMarketCap = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.marketCap
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ?  currentMarket[this.state.currentCity].marketCap : this.state.stateData.data.marketCap
   }
 
   getAverageArea = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.avgSqft
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ?  currentMarket[this.state.currentCity].avgSqft : this.state.stateData.data.avgSqft
   }
 
   getHighValue = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.high
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ?  currentMarket[this.state.currentCity].high : this.state.stateData.data.high
   }
 
   getLowValue = () => {
-    return !!this.currentMarket ? "25.2" : this.state.stateData.data.low
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ?  currentMarket[this.state.currentCity].low : this.state.stateData.data.low
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+    let market = nextProps.currentSelectedMarket.currentSelectedMarket || {}
+    let city = Object.keys(market)[0];
     return {
       stateData: nextProps.stateData,
-      currentSelectedMarket: nextProps.currentSelectedMarket
+      currentSelectedMarket: nextProps.currentSelectedMarket,
+      currentCity: city
     }
   }
 

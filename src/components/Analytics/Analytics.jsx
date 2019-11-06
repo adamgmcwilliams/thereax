@@ -47,7 +47,13 @@ class Analytics extends React.Component {
   }
 
   getAboutText = () => {
-    return !!this.state.currentSelectedMarket ? "Dummy About text" : this.state.stateData.data.about;
+    return !!this.state.currentSelectedMarket ? this.getCurrentSelectedMarketAboutText() : this.state.stateData.data.about;
+  }
+
+  getCurrentSelectedMarketAboutText = () => {
+    let market = this.state.currentSelectedMarket.currentSelectedMarket;
+    let city = Object.keys(market)[0];
+    return market[city].about
   }
 }
 
