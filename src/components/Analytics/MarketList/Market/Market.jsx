@@ -1,16 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { MarketContainer, CityStateContainer, MarketPriceContainer, MarketCity, MarketState, MarketPrice, MarketChangeInPrice } from './Market.js';
+import { setCurrentMarket } from '../../../../redux/actions';
 
 class Market extends React.Component {
   constructor(props) {
     super(props);
-    let { city, state, finalAgg, priceChange } = props;
-    this.state = { city: city, state: state, finalAgg: finalAgg, priceChange: priceChange }
+    let { city, state, finalAgg, priceChange, market } = props;
+    this.state = { city: city, state: state, finalAgg: finalAgg, priceChange: priceChange, market: market }
   }
   render() {
     return(
-      <MarketContainer>
+      <MarketContainer onClick={this.updateCurrentMarket}>
         <CityStateContainer>
           <MarketCity>
             {this.getCity()}
@@ -59,6 +61,10 @@ class Market extends React.Component {
       priceChange: nextProps.priceChange
     }
   }
+
+  updateCurrentMarket = () => {
+    this.props.setCurrentMarket(this.state.market)
+  }
 }
 
-export default Market;
+export default connect(null, { setCurrentMarket })(Market);

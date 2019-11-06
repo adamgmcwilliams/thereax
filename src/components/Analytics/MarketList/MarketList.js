@@ -11,6 +11,7 @@ export const MarketListContainer = styled.div`
   margin-left: 5%;
   justify-content: space-between;
   overflow: scroll;
+  cursor: pointer;
 `
 export const MarketListHeading = styled.div`
   font-size: 1em;
