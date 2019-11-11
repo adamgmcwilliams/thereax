@@ -30,9 +30,13 @@ class CommentList extends React.Component {
   }
 
   async componentDidMount() {
-    let response = await Server.get('./comments');
-    let comments  = response.data;
-    this.setState({ comments: comments })
+    try {
+      let response = await Server.get('./comments');
+      let comments  = response.data;
+      this.setState({ comments: comments })
+    } catch(error) {
+      console.log("Error:", Error)
+    }
   }
 
   renderComments = () => {
