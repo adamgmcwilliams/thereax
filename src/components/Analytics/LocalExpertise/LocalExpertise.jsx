@@ -20,8 +20,12 @@ class LocalExpertise extends React.Component {
 
   async componentDidMount() {
     let response = await Server.get('./experts');
-    let experts  = response.data;
-    this.setState({ experts: experts })
+    try {
+      let experts  = response.data;
+      this.setState({ experts: experts })
+    } catch(error) {
+      console.log("Error:", error)
+    }
   }
 
   renderExperts = () => {
