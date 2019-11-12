@@ -1,36 +1,52 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner'
 
 import MarketDetail from './MarketDetail';
 import MarketGraph from './MarketGraph';
 import LocalExpertise from './LocalExpertise';
 import MarketList from './MarketList';
 import CommentList from './CommentList';
-import { AnalyticsContainer, MarketDataContainer, AboutContainer, AboutHeading, AboutText } from './Analytics';
+import { AnalyticsContainer, MarketDataContainer, AboutContainer, AboutHeading, AboutText, LoaderContainer } from './Analytics.js';
 import { fetchStateData } from '../../redux/actions';
 
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
     let { stateData, currentSelectedMarket } = props;
-    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket }
+    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, dataLoaded: false  }
   }
   render() {
     return(
       <AnalyticsContainer>
-        <MarketDataContainer>
-          <MarketDetail />
-          <MarketGraph />
-          <LocalExpertise />
-          <MarketList />
-        </MarketDataContainer>
-        <AboutContainer>
-          <AboutHeading> About </AboutHeading>
-          <AboutText>
-            {this.getAboutText()}
-          </AboutText>
-        </AboutContainer>
-        <CommentList />
+        {this.state.dataLoaded ? (
+          <React.Fragment>
+            <MarketDataContainer>
+              <MarketDetail />
+              <MarketGraph />
+              <LocalExpertise />
+              <MarketList />
+            </MarketDataContainer>
+            <AboutContainer>
+              <AboutHeading> About </AboutHeading>
+              <AboutText>
+                {this.getAboutText()}
+              </AboutText>
+            </AboutContainer>
+            <CommentList />
+          </React.Fragment>
+        )
+        : (
+          <LoaderContainer>
+            <Loader
+              type="Circles"
+              color="black"
+              height={100}
+              width={100}
+              timeout={100000000}
+            />
+        </LoaderContainer>
+      )}
       </AnalyticsContainer>
     );
   }
@@ -40,9 +56,11 @@ class Analytics extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+    let dataLoaded = !!nextProps.stateData.data.about ? true : false
     return {
       stateData: nextProps.stateData,
-      currentSelectedMarket: nextProps.currentSelectedMarket
+      currentSelectedMarket: nextProps.currentSelectedMarket,
+      dataLoaded: dataLoaded
     }
   }
 
