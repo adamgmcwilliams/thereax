@@ -36,11 +36,11 @@ class Comment extends React.Component {
           <CommentMetaDataContainer>
             <ComentTime> <Moment parse="YYYY-MM-DD HH:mm" fromNow> {this.state.commentTime} ago</Moment> </ComentTime>
             <CommentLikesAndDislikes>
-              <CommentLikeContainer>
+              <CommentLikeContainer onClick={this.likeComment}>
                 <FontAwesomeIcon icon={faThumbsUp} size="xs" />
                 <TotalLikesAndDislikes> {this.state.likes} </TotalLikesAndDislikes>
               </CommentLikeContainer>
-              <CommentDislikeContainer>
+              <CommentDislikeContainer onClick={this.disLikeComment}>
                <FontAwesomeIcon icon={faThumbsDown} size="xs" />
                <TotalLikesAndDislikes> {this.state.dislikes} </TotalLikesAndDislikes>
               </CommentDislikeContainer>
@@ -50,6 +50,15 @@ class Comment extends React.Component {
       </CommentContainer>
     )
   }
+
+  likeComment = () => {
+    this.setState({ likes: ++this.state.likes })
+  }
+
+  disLikeComment = () => {
+    this.setState({ dislikes: ++this.state.dislikes })
+  }
+
 }
 
 export default Comment;
