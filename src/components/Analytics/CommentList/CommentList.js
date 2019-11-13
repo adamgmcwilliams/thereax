@@ -22,3 +22,7 @@ export const NewCommentContainer = styled.div`
 export const NewCommentUser = styled.div`
   width: 11%;
 `
+export const PreviousComments = styled.div`
+  height: 100%;
+  overflow: scroll;
+`
