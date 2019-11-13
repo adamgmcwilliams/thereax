@@ -38,11 +38,13 @@ export const CommentLikeContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 50%;
+  cursor: pointer;
 `
 export const CommentDislikeContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 50%;
+  cursor: pointer;
 `
 export const TotalLikesAndDislikes = styled.div`
   font-size: 0.6em;
