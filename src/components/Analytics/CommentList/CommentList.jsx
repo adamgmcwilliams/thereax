@@ -41,16 +41,17 @@ class CommentList extends React.Component {
     }
   }
 
-  addNewComment = () => {
+  addNewComment = (event) => {
     let comment = { "username": "New Comment User",
       "userPhoto": "https://s3.amazonaws.com/uifaces/faces/twitter/raphaelnikson/128.jpg",
       "timestamp": "2019-11-13T06:45:32.956Z",
       "likes": 10,
       "dislikes": 10,
-      "comment": "New comment Added",
+      "comment": event.target.value,
       "replies": []
     }
     let updatedComments = [...this.state.comments, comment];
+    event.target.value = ""
     this.setState({ comments: updatedComments })
   }
 
