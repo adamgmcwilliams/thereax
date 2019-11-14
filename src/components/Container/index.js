@@ -45,6 +45,9 @@ class Container extends Component {
     else if (pathname === '/signup') {
       return ['signup']
     }
+    else {
+      return ['/analytics']
+    }
 
   };
 
@@ -69,6 +72,18 @@ class Container extends Component {
             {this.isAnalyticsComponent() &&
               <Search />
             }
+            <Menu.Item
+              key="analytics"
+              onClick={() => {
+                history.push('/analytics');
+
+                this.setState({
+                  selectedKeys: ['analytics'],
+                });
+              }}
+            >
+              Analytics
+            </Menu.Item>
             <Menu.Item
               key="home"
               onClick={() => {
