@@ -1,13 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner'
+import MediaQuery from 'react-responsive';
 
 import MarketDetail from './MarketDetail';
 import MarketGraph from './MarketGraph';
 import LocalExpertise from './LocalExpertise';
 import MarketList from './MarketList';
 import CommentList from './CommentList';
-import { AnalyticsContainer, MarketDataContainer, AboutContainer, AboutHeading, AboutText, LoaderContainer } from './Analytics.js';
+import {
+  AnalyticsContainer,
+  MarketDataContainer,
+  AboutContainer,
+  AboutHeading,
+  AboutText,
+  LoaderContainer,
+  MobileMarketDataContainer,
+  Stats
+} from './Analytics.js';
 import { fetchStateData } from '../../redux/actions';
 
 class Analytics extends React.Component {
@@ -17,37 +27,58 @@ class Analytics extends React.Component {
     this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, dataLoaded: false  }
   }
   render() {
+    let viewPortWidth = window.innerWidth - 2;
     return(
-      <AnalyticsContainer>
-        {this.state.dataLoaded ? (
-          <React.Fragment>
-            <MarketDataContainer>
+      <React.Fragment>
+        <MediaQuery minDeviceWidth={1224} >
+          <AnalyticsContainer>
+            {this.state.dataLoaded ? (
+              <React.Fragment>
+                <MarketDataContainer>
+                  <MarketDetail />
+                  <MarketGraph width={600} height={310} />
+                  <LocalExpertise />
+                  <MarketList />
+                </MarketDataContainer>
+                <AboutContainer>
+                  <AboutHeading> About </AboutHeading>
+                  <AboutText>
+                    {this.getAboutText()}
+                  </AboutText>
+                </AboutContainer>
+                <CommentList />
+              </React.Fragment>
+            )
+            : (
+              <LoaderContainer>
+                <Loader
+                  type="Circles"
+                  color="black"
+                  height={100}
+                  width={100}
+                  timeout={100000000}
+                />
+            </LoaderContainer>
+          )}
+          </AnalyticsContainer>
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={1224} >
+          <AnalyticsContainer>
+            <MobileMarketDataContainer>
+              <MarketGraph width={viewPortWidth} height={200} />
+              <Stats> Stats </Stats>
               <MarketDetail />
-              <MarketGraph />
-              <LocalExpertise />
-              <MarketList />
-            </MarketDataContainer>
-            <AboutContainer>
-              <AboutHeading> About </AboutHeading>
-              <AboutText>
-                {this.getAboutText()}
-              </AboutText>
-            </AboutContainer>
-            <CommentList />
-          </React.Fragment>
-        )
-        : (
-          <LoaderContainer>
-            <Loader
-              type="Circles"
-              color="black"
-              height={100}
-              width={100}
-              timeout={100000000}
-            />
-        </LoaderContainer>
-      )}
-      </AnalyticsContainer>
+              <AboutContainer>
+                <AboutHeading> About </AboutHeading>
+                <AboutText>
+                  {this.getAboutText()}
+                </AboutText>
+              </AboutContainer>
+              <CommentList />
+            </MobileMarketDataContainer>
+          </ AnalyticsContainer>
+        </MediaQuery>
+      </React.Fragment>
     );
   }
 

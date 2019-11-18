@@ -4,8 +4,9 @@ import { XAxis, XYPlot, LineSeries } from 'react-vis';
 import { MarketGraphContainer } from './MarketGraph.js'
 
 class MarketGraph extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    let { width, height } = props;
     const data = [
       {x: "1D", y: 15000},
       {x: "1W", y: 10000},
@@ -18,12 +19,13 @@ class MarketGraph extends React.Component {
       {x: "12Y", y: 82000},
       {x: "15Y", y: 88000}
     ];
-    this.state = { sampleData: data }
+    this.state = { sampleData: data, width: width, height: height }
   }
   render() {
+    let { width, height } = this.state;
     return (
     <MarketGraphContainer>
-      <XYPlot width={600} height={310} xType="ordinal" style={{border: "1px solid black"}} ><XAxis/>
+      <XYPlot width={width} height={height} xType="ordinal" style={{border: "1px solid black"}} ><XAxis/>
       <LineSeries data={this.state.sampleData} />
       </XYPlot>
     </MarketGraphContainer>
