@@ -8,10 +8,17 @@ export const CommentListContainer = styled.div`
   margin-left: 3%;
   justify-content: space-around;
   height: 50vh;
+  @media (max-width: 1224px) {
+    height: unset;
+    width: 100%;
+  }
 `
 export const CommentContainerHeading = styled.div`
   font-size: 1.5em;
   font-weight: bold;
+  @media (max-width: 1224px) {
+    text-decoration: underline;
+  }
 `
 export const NewCommentContainer = styled.div`
   display: flex;

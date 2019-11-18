@@ -23,6 +23,9 @@ export const CommentMetaDataContainer = styled.div`
   flex-direction: row;
   width: 30%;
   justify-content: space-between;
+  @media (max-width: 1224px) {
+    width: 50%;
+  }
 `
 export const ComentTime = styled.div`
   font-size: 0.7em;
