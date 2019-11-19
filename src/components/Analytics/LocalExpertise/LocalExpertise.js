@@ -11,6 +11,10 @@ export const LocalExpertiseContainer = styled.div`
   justify-content: center;
   font-size: 12px;
   color: #686868;
+  @media (max-width:1224px) {
+    margin-left: unset;
+    width: 100%;
+  }
 `;
 
 export const LocalExpertiseHeading = styled.div`
