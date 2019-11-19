@@ -57,6 +57,7 @@ class Analytics extends React.Component {
                   <MarketGraph width={viewPortWidth} height={200} />
                   <Stats> Stats </Stats>
                   <MarketDetail />
+                  <LocalExpertise />
                   <AboutContainer>
                     <AboutHeading> About </AboutHeading>
                     <AboutText>

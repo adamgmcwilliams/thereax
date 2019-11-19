@@ -7,6 +7,9 @@ export const ExpertContainer = styled.div`
   justify-content: space-around;
   color: #686868;
   width: 100%;
+  @media (max-width:1224px) {
+    justify-content: space-between;
+  }
 `;
 
 export const ExpertDetail = styled.div`
