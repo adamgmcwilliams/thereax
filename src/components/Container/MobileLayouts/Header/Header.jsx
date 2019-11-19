@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Dropdown, Icon } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 import { MobileNavBar, LogoContainer, SearchContainer } from './Header.js';
 import Search from '../../../Search';
@@ -30,12 +31,18 @@ class Header extends React.Component {
             </a>
           </Dropdown>
         </ LogoContainer>
-        <SearchContainer>
-          <Search />
-        </SearchContainer>
+        {this.isAnalyticsRoute() &&
+          <SearchContainer>
+            <Search />
+          </SearchContainer>
+        }
       </MobileNavBar>
     );
   }
+
+  isAnalyticsRoute = () => {
+    return '/analytics' === this.props.location.pathname
+  }
 }
 
-export default Header;
+export default withRouter(Header);
