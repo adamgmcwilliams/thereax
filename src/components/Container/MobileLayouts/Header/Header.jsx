@@ -1,16 +1,17 @@
 import React from 'react';
 import { Menu, Dropdown, Icon } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 import { MobileNavBar, LogoContainer, SearchContainer } from './Header.js';
 import Search from '../../../Search';
 
 const menu = (
   <Menu>
-    <Menu.Item key="0">
-      <a href="/signup">Sign Up</a>
-    </Menu.Item>
     <Menu.Item key="1">
       <a href="/">Home</a>
+    </Menu.Item>
+    <Menu.Item key="0">
+      <a href="/signup">Sign Up</a>
     </Menu.Item>
     <Menu.Item key="3">
       <a href="/analytics">Analytics</a>
@@ -30,12 +31,18 @@ class Header extends React.Component {
             </a>
           </Dropdown>
         </ LogoContainer>
-        <SearchContainer>
-          <Search />
-        </SearchContainer>
+        {this.isAnalyticsRoute() &&
+          <SearchContainer>
+            <Search />
+          </SearchContainer>
+        }
       </MobileNavBar>
     );
   }
+
+  isAnalyticsRoute = () => {
+    return '/analytics' === this.props.location.pathname
+  }
 }
 
-export default Header;
+export default withRouter(Header);
