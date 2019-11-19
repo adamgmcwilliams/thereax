@@ -21,6 +21,7 @@ const menu = (
 
 class Header extends React.Component {
   render() {
+    let viewPortWidth = window.innerWidth - 2;
     return(
       <MobileNavBar>
         <LogoContainer>
@@ -33,7 +34,7 @@ class Header extends React.Component {
         </ LogoContainer>
         {this.isAnalyticsRoute() &&
           <SearchContainer>
-            <Search />
+            <Search width={viewPortWidth} />
           </SearchContainer>
         }
       </MobileNavBar>
