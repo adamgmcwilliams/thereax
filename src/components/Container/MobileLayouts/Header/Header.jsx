@@ -6,11 +6,11 @@ import Search from '../../../Search';
 
 const menu = (
   <Menu>
-    <Menu.Item key="0">
-      <a href="/signup">Sign Up</a>
-    </Menu.Item>
     <Menu.Item key="1">
       <a href="/">Home</a>
+    </Menu.Item>
+    <Menu.Item key="0">
+      <a href="/signup">Sign Up</a>
     </Menu.Item>
     <Menu.Item key="3">
       <a href="/analytics">Analytics</a>
