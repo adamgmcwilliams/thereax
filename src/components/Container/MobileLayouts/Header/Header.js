@@ -8,6 +8,10 @@ export const MobileNavBar = styled.div`
   align-items: center;
 `
 export const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 `
 export const SearchContainer = styled.div`
 `
