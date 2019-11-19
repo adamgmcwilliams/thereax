@@ -79,7 +79,7 @@ class Container extends Component {
                 <h1> R | E | A | X </h1>
                 </ LogoContainer>
                 {this.isAnalyticsComponent() &&
-                  <Search />
+                  <Search width={400} />
                 }
               <Menu.Item
                 key="analytics"

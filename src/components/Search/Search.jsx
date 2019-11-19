@@ -8,14 +8,15 @@ import { setCurrentMarket } from '../../redux/actions';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    let { stateData } = props;
-    this.state = {stateData: stateData, states: [] }
+    let { stateData, width } = props;
+    this.state = { stateData: stateData, states: [], width: width }
   }
 
   render() {
+    let { width }  = this.state;
     return(
       <SearchBoxContainer >
-        <AutoComplete placeholder="Search Districts" style={{ width: 400 }} dataSource={this.state.states}
+        <AutoComplete placeholder="Search Districts" style={{ width: width }} dataSource={this.state.states}
           onSelect={this.renderMarket} />
       </ SearchBoxContainer>
     );
