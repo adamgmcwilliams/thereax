@@ -26,7 +26,7 @@ class Header extends React.Component {
           R | E | A | X
           <Dropdown overlay={menu} trigger={['click']}>
             <a className="ant-dropdown-link" href="#">
-              <Icon type="bars" />
+              <Icon type="bars" style={{ fontSize:"1.5em" }}/>
             </a>
           </Dropdown>
         </ LogoContainer>
