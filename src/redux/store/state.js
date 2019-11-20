@@ -5,5 +5,8 @@ export const initialState = {
     markets: []
   },
   currentSelectedMarket: "",
-  experts: []
+  expertsData: {
+    list: [],
+    currentExpert: ""
+  }
 };

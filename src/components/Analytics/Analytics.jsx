@@ -8,6 +8,7 @@ import MarketGraph from './MarketGraph';
 import LocalExpertise from './LocalExpertise';
 import MarketList from './MarketList';
 import CommentList from './CommentList';
+import ContactExpert from './LocalExpertise/MobileLayout/ContactExpert';
 import {
   AnalyticsContainer,
   MarketDataContainer,
@@ -23,8 +24,14 @@ import { fetchStateData, fetchExperts } from '../../redux/actions';
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
-    let { stateData, currentSelectedMarket, experts } = props;
-    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, experts: experts, dataLoaded: false  }
+    let { stateData, currentSelectedMarket, experts, currentExpert } = props;
+    this.state = {
+      stateData: stateData,
+      currentSelectedMarket: currentSelectedMarket,
+      experts: experts,
+      dataLoaded: false,
+      currentExpert: currentExpert
+    }
   }
   render() {
     let viewPortWidth = window.innerWidth - 2;
@@ -64,6 +71,7 @@ class Analytics extends React.Component {
                     </AboutText>
                   </AboutContainer>
                   <LocalExpertise experts={this.state.experts} />
+                  <ContactExpert expert={this.state.currentExpert}/>
                   <CommentList />
                 </MobileMarketDataContainer>
               </ AnalyticsContainer>
@@ -96,7 +104,8 @@ class Analytics extends React.Component {
       stateData: nextProps.stateData,
       currentSelectedMarket: nextProps.currentSelectedMarket,
       experts: nextProps.experts,
-      dataLoaded: dataLoaded
+      dataLoaded: dataLoaded,
+      currentExpert: nextProps.currentExpert
     }
   }
 
@@ -112,7 +121,12 @@ class Analytics extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { stateData: state.stateData, currentSelectedMarket: state.currentSelectedMarket, experts: state.experts }
+  return {
+    stateData: state.stateData,
+    currentSelectedMarket: state.currentSelectedMarket,
+    experts: state.expertsData.list,
+    currentExpert: state.expertsData.currentExpert
+  }
 }
 
 export default connect( mapStateToProps, { fetchStateData, fetchExperts })(Analytics);
