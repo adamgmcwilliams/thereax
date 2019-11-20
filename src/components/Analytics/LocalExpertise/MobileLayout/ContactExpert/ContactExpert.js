@@ -23,14 +23,13 @@ export const ContactExpertHeading = styled.div`
 export const ContactExpertDetail = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 1%;
 `
 export const ContactExpertName = styled.div`
 `
 export const ContactExpertPhone = styled.div`
 `
 export const ContactExpertAbout = styled.div`
-  margin-left: 1%;
+  margin-left: 2%;
 `
 export const ContactExpertFooter = styled.div`
   margin-left: 1%;
@@ -39,7 +38,13 @@ export const ContactExpertInputFields = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1%;
+  height: 12vh;
+  justify-content: space-evenly;
 `
+export const ContactExpertTitle = styled.div`
+  font-size: 1.25em;
+`
+
 export const ContactExpertMessageSubmitButton = styled.div`
   border: none;
   color: white;

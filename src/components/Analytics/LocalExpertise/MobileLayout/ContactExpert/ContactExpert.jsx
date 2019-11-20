@@ -13,7 +13,8 @@ import {
   ContactExpertAbout,
   ContactExpertFooter,
   ContactExpertInputFields,
-  ContactExpertMessageSubmitButton
+  ContactExpertMessageSubmitButton,
+  ContactExpertTitle
 } from './ContactExpert.js';
 
 class ContactExpert extends React.Component {
@@ -35,7 +36,7 @@ class ContactExpert extends React.Component {
         <ExpertAvatarAndTitle>
           <Avatar size={30} src={photo} />
           <ContactExpertDetail >
-            {occupation}
+            <ContactExpertTitle> {occupation} </ContactExpertTitle>
            <ContactExpertName> {name} </ContactExpertName>
             <ContactExpertPhone> {phone} </ContactExpertPhone>
           </ContactExpertDetail>
