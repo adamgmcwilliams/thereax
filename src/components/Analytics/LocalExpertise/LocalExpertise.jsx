@@ -7,7 +7,8 @@ import Server from '../../../apis/reaxServer';
 class LocalExpertise extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { experts: [] }
+    let { experts } = props;
+    this.state = { experts: experts }
   }
   render() {
     return(
@@ -18,13 +19,9 @@ class LocalExpertise extends React.Component {
     );
   }
 
-  async componentDidMount() {
-    let response = await Server.get('./experts');
-    try {
-      let experts  = response.data;
-      this.setState({ experts: experts })
-    } catch(error) {
-      console.log("Error:", error)
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      experts: nextProps.experts
     }
   }
 
