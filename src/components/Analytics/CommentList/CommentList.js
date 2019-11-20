@@ -11,6 +11,7 @@ export const CommentListContainer = styled.div`
   @media (max-width: 1224px) {
     height: unset;
     width: 100%;
+    margin-top: 5%;
   }
 `
 export const CommentContainerHeading = styled.div`
