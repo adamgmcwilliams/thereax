@@ -18,13 +18,13 @@ import {
   MobileMarketDataContainer,
   Stats
 } from './Analytics.js';
-import { fetchStateData } from '../../redux/actions';
+import { fetchStateData, fetchExperts } from '../../redux/actions';
 
 class Analytics extends React.Component {
   constructor(props) {
     super(props);
-    let { stateData, currentSelectedMarket } = props;
-    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, dataLoaded: false  }
+    let { stateData, currentSelectedMarket, experts } = props;
+    this.state = { stateData: stateData, currentSelectedMarket: currentSelectedMarket, experts: experts, dataLoaded: false  }
   }
   render() {
     let viewPortWidth = window.innerWidth - 2;
@@ -38,7 +38,7 @@ class Analytics extends React.Component {
                     <MarketDataContainer>
                       <MarketDetail />
                       <MarketGraph width={600} height={310} />
-                      <LocalExpertise />
+                      <LocalExpertise experts={this.state.experts} />
                       <MarketList />
                     </MarketDataContainer>
                     <AboutContainer>
@@ -57,13 +57,13 @@ class Analytics extends React.Component {
                   <MarketGraph width={viewPortWidth} height={200} />
                   <Stats> Stats </Stats>
                   <MarketDetail />
-                  <LocalExpertise />
                   <AboutContainer>
                     <AboutHeading> About </AboutHeading>
                     <AboutText>
                       {this.getAboutText()}
                     </AboutText>
                   </AboutContainer>
+                  <LocalExpertise experts={this.state.experts} />
                   <CommentList />
                 </MobileMarketDataContainer>
               </ AnalyticsContainer>
@@ -87,13 +87,15 @@ class Analytics extends React.Component {
 
   componentDidMount() {
     this.props.fetchStateData();
+    this.props.fetchExperts();
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    let dataLoaded = !!nextProps.stateData.data.about ? true : false
+    let dataLoaded = !!nextProps.stateData.data.about && !!nextProps.experts.length ? true : false
     return {
       stateData: nextProps.stateData,
       currentSelectedMarket: nextProps.currentSelectedMarket,
+      experts: nextProps.experts,
       dataLoaded: dataLoaded
     }
   }
@@ -110,7 +112,7 @@ class Analytics extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { stateData: state.stateData, currentSelectedMarket: state.currentSelectedMarket }
+  return { stateData: state.stateData, currentSelectedMarket: state.currentSelectedMarket, experts: state.experts }
 }
 
-export default connect( mapStateToProps, { fetchStateData })(Analytics);
+export default connect( mapStateToProps, { fetchStateData, fetchExperts })(Analytics);

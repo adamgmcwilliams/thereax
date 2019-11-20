@@ -4,5 +4,6 @@ export const initialState = {
     },
     markets: []
   },
-  currentSelectedMarket: ""
+  currentSelectedMarket: "",
+  experts: []
 };
