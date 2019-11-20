@@ -1,5 +1,6 @@
 import React from 'react';
 import { Avatar, Modal, Button, Input } from 'antd';
+import MediaQuery from 'react-responsive';
 
 import {
   ExpertContainer,
@@ -54,53 +55,55 @@ class Expert extends React.Component {
             {this.state.phone}
           </ExpertPhoneNumber>
         </ExpertDetail>
-        <Modal
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          footer={null}
-          bodyStyle={{height: "42vh"}}
-          closable={false}
-        >
-          <ExpertContactContainer>
-            <ExpertDetailModal>
-              <ExpertAvatar>
-                <Avatar size={130} src={this.state.photo_url} shape="square" />
-              </ExpertAvatar>
-              <ExpertData>
-                <ExpertTitle>
-                  {this.state.title}
-                </ExpertTitle>
-                <ExpertName>
-                  {this.state.name}
-                </ExpertName>
-                <ExpertPhoneNumber>
-                  {this.state.phone}
-                </ExpertPhoneNumber>
-                <ExpertAbout>
-                  {this.state.about}
-                </ExpertAbout>
-              </ExpertData>
-            </ExpertDetailModal>
-            <ContacatLocalExpertHeading>
-              Contact a local expert today!
-            </ContacatLocalExpertHeading>
-            <MessageContainer>
-              <UserContactDetail>
-                <Input style={{ width: 220 }} placeholder="Name" size="small" />
-                <Input style={{ width: 220 }} placeholder="Email" size="small" />
-                <Input style={{ width: 220 }} placeholder="Phone" size="small" />
-              </UserContactDetail>
-              <UserOtherContainer>
-                <Input style={{ width: 220 }} placeholder="Investment $ Range" size="small" />
-                <TextArea style={{ width: 220 }} placeholder="Other" />
-              </UserOtherContainer>
-            </MessageContainer>
-            <MessageSubmitButton> Submit </MessageSubmitButton>
-            <MessageModalFooter>
-              For quickest results fill out this form and call the experts phone number listed above!
-            </MessageModalFooter>
-          </ExpertContactContainer>
-        </Modal>
+        <MediaQuery minDeviceWidth={1224} >
+          <Modal
+            visible={this.state.visible}
+            onCancel={this.handleCancel}
+            footer={null}
+            bodyStyle={{height: "42vh"}}
+            closable={false}
+          >
+            <ExpertContactContainer>
+              <ExpertDetailModal>
+                <ExpertAvatar>
+                  <Avatar size={130} src={this.state.photo_url} shape="square" />
+                </ExpertAvatar>
+                <ExpertData>
+                  <ExpertTitle>
+                    {this.state.title}
+                  </ExpertTitle>
+                  <ExpertName>
+                    {this.state.name}
+                  </ExpertName>
+                  <ExpertPhoneNumber>
+                    {this.state.phone}
+                  </ExpertPhoneNumber>
+                  <ExpertAbout>
+                    {this.state.about}
+                  </ExpertAbout>
+                </ExpertData>
+              </ExpertDetailModal>
+              <ContacatLocalExpertHeading>
+                Contact a local expert today!
+              </ContacatLocalExpertHeading>
+              <MessageContainer>
+                <UserContactDetail>
+                  <Input style={{ width: 220 }} placeholder="Name" size="small" />
+                  <Input style={{ width: 220 }} placeholder="Email" size="small" />
+                  <Input style={{ width: 220 }} placeholder="Phone" size="small" />
+                </UserContactDetail>
+                <UserOtherContainer>
+                  <Input style={{ width: 220 }} placeholder="Investment $ Range" size="small" />
+                  <TextArea style={{ width: 220 }} placeholder="Other" />
+                </UserOtherContainer>
+              </MessageContainer>
+              <MessageSubmitButton> Submit </MessageSubmitButton>
+              <MessageModalFooter>
+                For quickest results fill out this form and call the experts phone number listed above!
+              </MessageModalFooter>
+            </ExpertContactContainer>
+          </Modal>
+        </MediaQuery>
       </ExpertContainer>
     );
   }
