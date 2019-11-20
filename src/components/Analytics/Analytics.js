@@ -53,5 +53,7 @@ export const LoaderContainer = styled.div`
 `
 export const Stats = styled.div`
   font-size: 1.5em;
+  font-weight: bold;
   text-decoration: underline;
+  margin-left: 3%;
 `

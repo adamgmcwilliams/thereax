@@ -43,6 +43,9 @@ export const MeasurementDetailTable = styled.div`
   margin-top: 10%;
   height: 23.8vh;
   justify-content: space-evenly;
+  @media (max-width:1224px) {
+    margin-top: unset;
+  }
 `
 export const MeasurementDetailRow = styled.div`
   display: flex;
