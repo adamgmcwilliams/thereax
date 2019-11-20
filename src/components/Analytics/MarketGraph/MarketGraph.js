@@ -5,7 +5,9 @@ export const MarketGraphContainer = styled.div`
   margin-left: 1%;
   height: 40vh;
   @media (max-width: 1224px) {
+    display: flex;
     margin-top: unset;
-    margin-right: 1%;
+    margin-right: unset;
+    margin-left: unset;
   }
 `;
