@@ -33,6 +33,7 @@ export const AboutContainer = styled.div`
   width: 65%;
   @media (max-width: 1224px) {
     width: 100%;
+    margin-top: 5%;
   }
 `
 export const AboutHeading = styled.div`
@@ -56,4 +57,5 @@ export const Stats = styled.div`
   font-weight: bold;
   text-decoration: underline;
   margin-left: 3%;
+  margin-top: 5%;
 `
