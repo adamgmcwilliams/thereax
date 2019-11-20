@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar, Modal, Button, Input } from 'antd';
 import MediaQuery from 'react-responsive';
+import { connect } from 'react-redux';
 
 import {
   ExpertContainer,
@@ -21,7 +22,7 @@ import {
   MessageModalContainer,
   MessageModalFooter
   } from './Expert.js';
-
+  import { setCurrentExpert } from '../../../../redux/actions';
 import './Expert.css';
 
 class Expert extends React.Component {
@@ -35,6 +36,7 @@ class Expert extends React.Component {
       phone: expert.phone,
       photo_url: expert.photo,
       about: expert.about,
+      expert: expert,
       loading: false,
       visible: false,
      }
@@ -109,6 +111,7 @@ class Expert extends React.Component {
   }
 
   showModal = () => {
+    this.updateCurrentExpert();
     this.setState({
       visible: true
     });
@@ -131,6 +134,10 @@ class Expert extends React.Component {
       about: expert.about
     }
   }
+
+  updateCurrentExpert = () => {
+    this.props.setCurrentExpert(this.state.expert)
+  }
 }
 
-export default Expert;
+export default connect(null, { setCurrentExpert } )(Expert);
