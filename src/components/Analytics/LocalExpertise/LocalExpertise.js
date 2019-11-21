@@ -13,7 +13,7 @@ export const LocalExpertiseContainer = styled.div`
   color: #686868;
   @media (max-width:1224px) {
     margin-left: 3%;
-    width: 100%;
+    width: 95%;
   }
 `;
 
