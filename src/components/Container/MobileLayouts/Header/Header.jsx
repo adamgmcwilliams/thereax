@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Dropdown, Icon } from 'antd';
 import { withRouter } from 'react-router-dom';
 
-import { MobileNavBar, LogoContainer, SearchContainer, Logo } from './Header.js';
+import { MobileNavBar, LogoContainer, SearchContainer } from './Header.js';
 import Search from '../../../Search';
 
 const menu = (
@@ -25,9 +25,7 @@ class Header extends React.Component {
     return(
       <MobileNavBar>
         <LogoContainer>
-          <Logo>
-            R | E | A | X
-          </Logo>
+          R | E | A | X
           <Dropdown overlay={menu} trigger={['click']}>
             <a className="ant-dropdown-link" href="#">
               <Icon type="bars" style={{ fontSize:"1.5em" }}/>
