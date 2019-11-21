@@ -26,6 +26,9 @@ export const NewCommentContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  @media (max-width: 1224px) {
+    width: 95%;
+  }
 `
 export const NewCommentUser = styled.div`
   width: 11%;

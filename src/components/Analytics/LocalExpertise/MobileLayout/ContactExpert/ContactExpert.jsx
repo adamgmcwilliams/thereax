@@ -25,7 +25,7 @@ class ContactExpert extends React.Component {
   }
 
   render() {
-    let viewPortWidth = window.innerWidth - 20;
+    let viewPortWidth = window.innerWidth - 30;
     let { photo, occupation, name, phone, about } = this.state.expert;
     return(
       <MediaQuery maxDeviceWidth={1224} >

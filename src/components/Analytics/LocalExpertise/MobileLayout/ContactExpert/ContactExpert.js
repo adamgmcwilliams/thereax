@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const ContactExpertContainer = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   background-color: #ECF4F0;
   height: 50vh;
   margin-top: 5%;
+  margin-left: 3%;
 `;
 
 export const ExpertAvatarAndTitle = styled.div`
