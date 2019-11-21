@@ -11,13 +11,8 @@ export const MobileNavBar = styled.div`
 export const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
-`
-export const Logo = styled.div`
-  display: flex;
-  width: 90%;
-  justify-content: center;
 `
 export const SearchContainer = styled.div`
 `
