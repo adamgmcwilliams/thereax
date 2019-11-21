@@ -9,5 +9,6 @@ export const MarketGraphContainer = styled.div`
     margin-top: unset;
     margin-right: unset;
     margin-left: unset;
+    justify-content: center;
   }
 `;

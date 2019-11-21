@@ -12,7 +12,7 @@ export const LocalExpertiseContainer = styled.div`
   font-size: 12px;
   color: #686868;
   @media (max-width:1224px) {
-    margin-left: unset;
+    margin-left: 3%;
     width: 100%;
   }
 `;

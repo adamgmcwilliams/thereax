@@ -8,7 +8,7 @@ export const ExpertContainer = styled.div`
   color: #686868;
   width: 100%;
   @media (max-width:1224px) {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 
@@ -16,9 +16,6 @@ export const ExpertDetail = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
-  @media (max-width:1224px) {
-    width: unset;
-  }
 `
 export const ExpertTitle = styled.div`
   font-weight: bold;

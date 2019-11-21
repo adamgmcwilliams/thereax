@@ -61,7 +61,7 @@ class Analytics extends React.Component {
             <MediaQuery maxDeviceWidth={1224} >
               <AnalyticsContainer>
                 <MobileMarketDataContainer>
-                  <MarketGraph width={viewPortWidth} height={200} />
+                  <MarketGraph width={viewPortWidth - 20} height={200} />
                   <Stats> Stats </Stats>
                   <MarketDetail />
                   <AboutContainer>
