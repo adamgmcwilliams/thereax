@@ -51,8 +51,8 @@ class CommentList extends React.Component {
       "replies": []
     }
     let updatedComments = [...this.state.comments, comment];
+    if(event.target.value) this.setState({ comments: updatedComments })
     event.target.value = ""
-    this.setState({ comments: updatedComments })
   }
 
   renderComments = () => {

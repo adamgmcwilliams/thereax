@@ -32,7 +32,7 @@ export const AboutContainer = styled.div`
   margin-left: 3%;
   width: 65%;
   @media (max-width: 1224px) {
-    width: 100%;
+    width: 95%;
     margin-top: 5%;
   }
 `
