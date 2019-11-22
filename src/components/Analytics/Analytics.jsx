@@ -17,7 +17,11 @@ import {
   AboutText,
   LoaderContainer,
   MobileMarketDataContainer,
-  Stats
+  Stats,
+  MobileLayoutMarketMetaData,
+  MarketMetaDataPriceChangeContainer,
+  MarketMetaDataNameAndPrice,
+  MarketMetaDataName
 } from './Analytics.js';
 import { fetchStateData, fetchExperts } from '../../redux/actions';
 
@@ -30,12 +34,13 @@ class Analytics extends React.Component {
       currentSelectedMarket: currentSelectedMarket,
       experts: experts,
       dataLoaded: false,
-      currentExpert: currentExpert
+      currentExpert: currentExpert,
+      currentCity: ""
     }
   }
   render() {
     let viewPortWidth = window.innerWidth - 2;
-    let { dataLoaded, experts, currentExpert } = this.state;
+    let { dataLoaded, experts, currentExpert, currentSelectedMarket } = this.state;
     return(
       <React.Fragment>
         {dataLoaded ? (
@@ -62,6 +67,17 @@ class Analytics extends React.Component {
             <MediaQuery maxDeviceWidth={1224} >
               <AnalyticsContainer>
                 <MobileMarketDataContainer>
+                  <MobileLayoutMarketMetaData>
+                    <MarketMetaDataNameAndPrice>
+                      <MarketMetaDataName>
+                        {this.getCity().toUpperCase()}
+                      </MarketMetaDataName>
+                      ${this.getMarketAvergePrice()}
+                    </MarketMetaDataNameAndPrice>
+                    <MarketMetaDataPriceChangeContainer>
+                      +$0.15 (0.09%)
+                    </MarketMetaDataPriceChangeContainer>
+                  </MobileLayoutMarketMetaData>
                   <MarketGraph width={viewPortWidth - 20} height={200} />
                   <Stats> Stats </Stats>
                   <MarketDetail />
@@ -115,9 +131,24 @@ class Analytics extends React.Component {
   }
 
   getCurrentSelectedMarketAboutText = () => {
-    let market = this.state.currentSelectedMarket.currentSelectedMarket;
+    let market = this.state.currentSelectedMarket
     let city = Object.keys(market)[0];
     return market[city].about
+  }
+
+  getCity = () => {
+    return !!this.state.currentSelectedMarket ? this.getCurrentSelectedCity() : "Belleville"
+  }
+
+  getCurrentSelectedCity = () => {
+    let market = this.state.currentSelectedMarket.currentSelectedMarket;
+    let city = Object.keys(market)[0];
+    return city;
+  }
+
+  getMarketAvergePrice = () => {
+    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
+    return !!this.state.currentSelectedMarket ? currentMarket[this.getCity()].finalAgg : this.state.stateData.data.finalAgg
   }
 }
 
