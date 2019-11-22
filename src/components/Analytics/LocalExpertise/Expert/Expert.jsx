@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Modal, Button, Input } from 'antd';
+import { Avatar, Modal, Input } from 'antd';
 import MediaQuery from 'react-responsive';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,6 @@ import {
   ExpertAvatar,
   MessageSubmitButton,
   ContacatLocalExpertHeading,
-  MessageModalContainer,
   MessageModalFooter
   } from './Expert.js';
   import { setCurrentExpert } from '../../../../redux/actions';

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { LocalExpertiseContainer, LocalExpertiseHeading } from './LocalExpertise.js'
 import Expert from './Expert';
-import Server from '../../../apis/reaxServer';
 
 class LocalExpertise extends React.Component {
   constructor(props) {

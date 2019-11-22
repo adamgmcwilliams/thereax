@@ -58,7 +58,6 @@ class MarketDetail extends React.Component {
   }
 
   getMarketName = () => {
-    let currentMarket = this.state.currentSelectedMarket.currentSelectedMarket;
     return !!this.state.currentSelectedMarket ? this.state.currentCity.toUpperCase() : "Belleville"
   }
 
