@@ -52,11 +52,15 @@ class Comment extends React.Component {
   }
 
   likeComment = () => {
-    this.setState({ likes: ++this.state.likes })
+    let likes = this.state.likes;
+    likes++;
+    this.setState({ likes: likes })
   }
 
   disLikeComment = () => {
-    this.setState({ dislikes: ++this.state.dislikes })
+    let dislikes = this.state.dislikes;
+    dislikes++;
+    this.setState({ dislikes: dislikes })
   }
 
 }
