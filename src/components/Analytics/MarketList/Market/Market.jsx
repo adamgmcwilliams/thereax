@@ -11,42 +11,27 @@ class Market extends React.Component {
     this.state = { city: city, state: state, finalAgg: finalAgg, priceChange: priceChange, market: market }
   }
   render() {
+    let { city, state, finalAgg, priceChange } = this.state;
     return(
       <MarketContainer onClick={this.updateCurrentMarket}>
         <CityStateContainer>
           <MarketCity>
-            {this.getCity()}
+            {city.toUpperCase()}
           </MarketCity>
           <MarketState>
-            {this.getState()}
+            {state}
           </MarketState>
         </CityStateContainer>
         <MarketPriceContainer>
           <MarketPrice>
-            ${this.getFinalAgg()}
+            ${finalAgg}
           </MarketPrice>
           <MarketChangeInPrice style={{ color: `${this.getPriceChangeColor()}` }} >
-            {this.getPriceChange()}
+            {priceChange}
           </MarketChangeInPrice>
         </MarketPriceContainer>
       </MarketContainer>
       )
-  }
-
-  getCity = () => {
-    return this.state.city.toUpperCase();
-  }
-
-  getState = () => {
-    return this.state.state;
-  }
-
-  getFinalAgg = () => {
-    return this.state.finalAgg;
-  }
-
-  getPriceChange = () => {
-    return this.state.priceChange;
   }
 
   getPriceChangeColor = () => {
