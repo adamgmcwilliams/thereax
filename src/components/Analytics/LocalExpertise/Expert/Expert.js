@@ -79,7 +79,7 @@ export const MessageSubmitButton = styled.div`
   color: white;
   text-align: center;
   text-decoration: none;
-  background-color: 2FD09E;
+  background-color: #2FD09E;
   width: 15%;
   display: flex;
   justify-content: center;

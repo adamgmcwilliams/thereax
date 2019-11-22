@@ -35,9 +35,10 @@ class Analytics extends React.Component {
   }
   render() {
     let viewPortWidth = window.innerWidth - 2;
+    let { dataLoaded, experts, currentExpert } = this.state;
     return(
       <React.Fragment>
-        {this.state.dataLoaded ? (
+        {dataLoaded ? (
           <React.Fragment>
             <MediaQuery minDeviceWidth={1224} >
               <AnalyticsContainer>
@@ -70,8 +71,8 @@ class Analytics extends React.Component {
                       {this.getAboutText()}
                     </AboutText>
                   </AboutContainer>
-                  <LocalExpertise experts={this.state.experts} />
-                  <ContactExpert expert={this.state.currentExpert}/>
+                  <LocalExpertise experts={experts} />
+                  <ContactExpert expert={currentExpert}/>
                   <CommentList />
                 </MobileMarketDataContainer>
               </ AnalyticsContainer>
