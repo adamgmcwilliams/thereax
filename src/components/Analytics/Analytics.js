@@ -59,3 +59,23 @@ export const Stats = styled.div`
   margin-left: 3%;
   margin-top: 5%;
 `
+export const MobileLayoutMarketMetaData = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: 3%;
+  font-size: 1.5em;
+  justify-content: space-between;
+  width: 80%;
+`
+export const MarketMetaDataPriceChangeContainer = styled.div`
+  font-size: 0.8rem;
+  margin-top: 2%;
+  font-weight: 100;
+`
+export const MarketMetaDataNameAndPrice = styled.div`
+  display: flex;
+  width: 65%;
+`
+export const MarketMetaDataName = styled.div`
+  margin-right: 5%;
+`
