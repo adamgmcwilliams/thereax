@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Layout, Row, Col, Input } from 'antd';
+import { Menu, Layout, Row, Col } from 'antd';
 import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 

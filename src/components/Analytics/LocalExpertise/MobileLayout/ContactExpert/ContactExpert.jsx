@@ -1,7 +1,6 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import { connect } from 'react-redux';
-import { Avatar, Modal, Button, Input } from 'antd';
+import { Avatar, Input } from 'antd';
 
 import {
   ContactExpertContainer,
