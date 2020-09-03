@@ -40,7 +40,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "save-dev": "0.0.1-security",
-    "serve": "10.0.2",
+    "serve": "10.1.2",
     "styled-components": "4.0.2",
     "superagent": "^4.0.0-beta.5",
     "typed.js": "2.0.9"
